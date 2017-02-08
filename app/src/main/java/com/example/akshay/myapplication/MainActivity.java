@@ -2,6 +2,7 @@ package com.example.akshay.myapplication;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         //Async Runner
         AsyncTaskRunner runner = new AsyncTaskRunner();
         runner.execute();
+    }
+
+    public void RegisterTriggered(View view){
+        Intent intent = new Intent(context, RegisterationActivity.class);
+        startActivity(intent);
     }
 
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
