@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     responseString = new StringBuffer();
                     while ((inputLine = in.readLine()) != null) {
                         responseString.append(inputLine);
+                        System.out.println("hey there!");
                     }
                     in.close();
                 }
