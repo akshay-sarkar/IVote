@@ -5,4 +5,5 @@
     <string name="login">Login</string>
     <string name="registeration">Registeration</string>
     <string name="password">Password</string>
+    <string name="poll_managment">Poll Managment</string>
 </resources>
