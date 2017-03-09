@@ -38,7 +38,7 @@ public class PollManagementActivity extends ListActivity {
         FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.floatingButtonAddPollScreen);
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(ctx, MainActivity.class);
+                Intent intent = new Intent(ctx, AddPoll.class);
                 startActivity(intent);
             }
         });
