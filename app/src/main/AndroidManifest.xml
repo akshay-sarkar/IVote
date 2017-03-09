@@ -13,7 +13,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterationActivity"
             android:label="@string/app_name" />
@@ -24,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddPoll"></activity>
+        <activity android:name=".AddPoll" />
+        <activity android:name=".forgotAcitvity" />
+        <activity android:name=".VerifyUserActivity"></activity>
     </application>
 
 </manifest>
