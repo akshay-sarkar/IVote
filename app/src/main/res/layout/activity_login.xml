@@ -17,18 +17,49 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
     tools:context="com.example.akshay.myapplication.LoginActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"
+        android:onClick="RegisterTriggered"
+        android:text="@string/registeration"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="33dp"
+        android:onClick="forgotPasswordTriggered"
+        android:text="@string/forgot_password"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="1"
+        android:id="@+id/linearLayout"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
@@ -38,7 +69,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/email_utaid"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="abc@mavs.uta.edu"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/passwordText"
@@ -46,7 +79,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="admin"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/loginButton"
@@ -54,39 +89,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="loginTriggered"
-            android:text="@string/login" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.68"
-                android:clickable="true"
-                android:onClick="RegisterTriggered"
-                android:text="@string/registeration"
-                android:textAlignment="viewStart"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.68"
-                android:text="Forgot Password"
-                android:textAlignment="viewEnd"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+            android:text="@string/login"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="LOGIN SCREEN"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

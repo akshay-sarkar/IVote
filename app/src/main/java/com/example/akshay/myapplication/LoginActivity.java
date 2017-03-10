@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -18,8 +20,7 @@ import java.net.URL;
 public class LoginActivity extends AppCompatActivity {
 
     private final String base_url = "http://192.168.187.1:8080/myWebService/rest/testWS";
-    EditText usernameText;
-    EditText passwordText;
+    EditText usernameText, passwordText;
     ProgressDialog progressDialog;
     Context context;
     HttpURLConnection connection;
@@ -27,19 +28,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        System.out.println("Hello");
+        setContentView(R.layout.activity_login);
         usernameText = (EditText) findViewById(R.id.usernameText);
         passwordText = (EditText) findViewById(R.id.passwordText);
         context = this;
+        // FIREBASE TOKEN Collector
+        System.out.println("TOKEN : "+ FirebaseInstanceId.getInstance().getToken());
+        // TODO: Send Token to the Server
     }
 
+    /* Onclick Login */
     public void loginTriggered(View view) {
         //Setting Progress Dialog
         progressDialog = ProgressDialog.show(context, "UTA Ambassador", "Checking Credentails", true, false);
+
+        //Preparing Paramaneters to pass in Async Thread
+        String url ="/login?emailId="+ usernameText.getText().toString() + "&pwd="+  passwordText.getText().toString();
+
         //Async Runner
         AsyncTaskRunner runner = new AsyncTaskRunner();
-        runner.execute();
+        runner.execute(url);
     }
 
     public void RegisterTriggered(View view){
@@ -47,6 +55,12 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void  forgotPasswordTriggered(View view){
+        Intent intent = new Intent(context, ForgotAcitvity.class);
+        startActivity(intent);
+    }
+
+    /* Thread for Server Interation - Pass paramenter and URL */
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
         private String resp;
@@ -56,9 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 StringBuffer responseString = null;
                 String inputLine;
-                HttpURLConnection connection = null;
-
-                URL dataUrl = new URL(base_url + "/login?emailId=" + usernameText.getText().toString() + "&pwd=" + passwordText.getText().toString());
+                URL dataUrl = new URL(base_url + params[0]);
                 connection = (HttpURLConnection) dataUrl.openConnection();
                 // optional default is GET
                 connection.setRequestMethod("GET");
@@ -95,8 +107,11 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equals("Successfull")) {
                 Toast.makeText(context, "Successfull!!", Toast.LENGTH_LONG).show();
+
             }
-            //Toast.makeText(context, result , Toast.LENGTH_LONG).show();
+            /* Only to be allowed at success case */
+            Intent intent = new Intent(context, PollManagementActivity.class);
+            startActivity(intent);
         }
     }
 }

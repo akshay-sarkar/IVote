@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.example.akshay.myapplication.messagingService.CloudMessagingServiceIDService;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 public class PollManagementActivity extends ListActivity {
@@ -43,7 +42,7 @@ public class PollManagementActivity extends ListActivity {
         FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.floatingButtonAddPollScreen);
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(ctx, AddPoll.class);
+                Intent intent = new Intent(ctx, AddPollActivity.class);
                 startActivity(intent);
             }
         });
