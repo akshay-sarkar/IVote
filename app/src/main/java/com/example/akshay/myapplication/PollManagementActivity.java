@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.akshay.myapplication.messagingService.CloudMessagingServiceIDService;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class PollManagementActivity extends ListActivity {
     String[] assignmentArray = {"Poll Name 1", "Poll Name 2", "Poll Name 3", "Poll Name 4", "Poll Name 5"};
     Context ctx;
@@ -26,6 +29,8 @@ public class PollManagementActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         ctx = getApplicationContext();
         setContentView(R.layout.activity_poll_management);
+        // FIREBASE TOKEN Collector
+        System.out.println("TOKEN : "+ FirebaseInstanceId.getInstance().getToken());
 
         // initiate the listadapter
         ArrayAdapter<String> myAdapter = new ArrayAdapter <String>(this,
@@ -105,7 +110,6 @@ public class PollManagementActivity extends ListActivity {
         toggleButtonActivatePoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
                 if(!isChecked)
                     Toast.makeText(ctx, "Activated...", Toast.LENGTH_SHORT).show();
                 else {
