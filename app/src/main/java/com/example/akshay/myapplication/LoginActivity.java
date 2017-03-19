@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     /* Onclick Login */
     public void loginTriggered(View view) {
         //Setting Progress Dialog
-        progressDialog = ProgressDialog.show(context, "UTA Ambassador", "Checking Credentails", true, false);
+        progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
 
         //Preparing Paramaneters to pass in Async Thread
         String url ="/login?emailId="+ usernameText.getText().toString() + "&pwd="+  passwordText.getText().toString();

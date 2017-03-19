@@ -10,8 +10,8 @@ tools:context="com.example.akshay.myapplication.VerifyUserActivity">
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
+        android:layout_alignBaseline="@+id/editTextEmailVerify"
+        android:layout_alignBottom="@+id/editTextEmailVerify"
         android:layout_alignParentStart="true"
         android:layout_marginStart="36dp"
         android:text="Email ID"
@@ -19,31 +19,29 @@ tools:context="com.example.akshay.myapplication.VerifyUserActivity">
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextEmailVerify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText8"
-        android:layout_alignEnd="@+id/editText8"
-        android:layout_alignStart="@+id/editText8"
-        android:layout_marginBottom="26dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_above="@+id/editTextOTPVerify"
+        android:layout_alignStart="@+id/editTextOTPVerify" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText8"
-        android:layout_alignBottom="@+id/editText8"
+        android:layout_alignBaseline="@+id/editTextOTPVerify"
+        android:layout_alignBottom="@+id/editTextOTPVerify"
         android:layout_alignEnd="@+id/textView13"
         android:text="OTP"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/editTextOTPVerify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -54,15 +52,15 @@ tools:context="com.example.akshay.myapplication.VerifyUserActivity">
         android:layout_marginEnd="21dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonVerify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextOTPVerify"
+        android:layout_below="@+id/editTextOTPVerify"
         android:layout_gravity="center_horizontal"
-        android:text="Submit"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/editText8"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_marginEnd="23dp" />
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="15dp"
+        android:text="Verify" />
 
     <TextView
         android:id="@+id/textView16"

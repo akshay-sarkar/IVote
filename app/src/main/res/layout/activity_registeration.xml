@@ -42,7 +42,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/fName"
+                android:id="@+id/editTextStudentFName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="First Name"
@@ -63,7 +63,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/lName"
+                android:id="@+id/editTextStudentLName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
@@ -83,7 +83,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/emailId"
+                android:id="@+id/editTextStudentEmailId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Email ld"
@@ -104,7 +104,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/utaID"
+                android:id="@+id/editTextStudentUTAID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="UTA ID"
@@ -124,7 +124,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/editTextStudentPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
@@ -144,7 +144,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/editTextStudentPasswordReg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -157,7 +157,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnClearRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -165,7 +165,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnSubmitRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
