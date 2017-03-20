@@ -7,12 +7,27 @@
     android:gravity="center_horizontal|center_vertical"
     android:orientation="vertical">
 
-    <TableLayout
+    <TextView
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:text="Registeration Screen"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="10dp"
+        android:stretchColumns="*"
+        android:id="@+id/tableLayout">
 
         <TableRow
             android:layout_width="match_parent"
@@ -22,14 +37,17 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="First Name" />
+                android:text="First Name"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/editTextStudentFName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="First Name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
@@ -40,10 +58,12 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name" />
+                android:text="Last Name"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/editTextStudentLName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
@@ -58,10 +78,12 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email ld" />
+                android:text="Email ld"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/editTextStudentEmailId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Email ld"
@@ -77,10 +99,12 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UTA ID" />
+                android:text="UTA ID"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/editTextStudentUTAID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="UTA ID"
@@ -95,10 +119,12 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone" />
+                android:text="Phone"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/editTextStudentPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
@@ -113,15 +139,39 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password" />
+                android:text="Password"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/editTextStudentPasswordReg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPersonName" />
+
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnClearRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Clear"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnSubmitRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Submit" />
+        </TableRow>
+
 
     </TableLayout>
 </RelativeLayout>
