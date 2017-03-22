@@ -14,12 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.akshay.myapplication.adapter.PollAdapter;
+import com.example.akshay.myapplication.dao.PollEntity;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.ArrayList;
+
 public class PollManagementActivity extends ListActivity {
-    String[] assignmentArray = {"Poll Name 1", "Poll Name 2", "Poll Name 3", "Poll Name 4", "Poll Name 5"};
+    //String[] assignmentArray = {"Poll Name 1", "Poll Name 2", "Poll Name 3", "Poll Name 4", "Poll Name 5"};
+    ArrayList<PollEntity> pollObjects;
     Context ctx;
     ListView list;
+    PollAdapter pollAdapter;
     // isAnyPollActive
     boolean isAnyPollActive = false;
 
@@ -28,15 +34,20 @@ public class PollManagementActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         ctx = getApplicationContext();
         setContentView(R.layout.activity_poll_management);
+
+        pollObjects = new ArrayList<>();
+        pollObjects.add(new PollEntity("Poll Name 1", "Start Date: 02/04/2017", "End Date: 02/06/2017" ));
+        pollObjects.add(new PollEntity("Poll Name 2", "Start Date: "+"02/07/2017", "End Date: "+"02/09/2017" ));
+        pollObjects.add(new PollEntity("Poll Name 3", "Start Date: "+"02/11/2017", "End Date: "+"02/13/2017" ));
+        pollObjects.add(new PollEntity("Poll Name 4", "Start Date: "+"02/17/2017", "End Date: "+"02/19/2017" ));
+        pollObjects.add(new PollEntity("Poll Name 5", "Start Date: "+"02/21/2017", "End Date: "+"02/23/2017" ));
+
         // FIREBASE TOKEN Collector
         System.out.println("TOKEN : "+ FirebaseInstanceId.getInstance().getToken());
 
-        // initiate the listadapter
-        ArrayAdapter<String> myAdapter = new ArrayAdapter <String>(this,
-                R.layout.activity_listview, R.id.textLabelPollName, assignmentArray);
-
-        setListAdapter(myAdapter);
-
+        pollAdapter = new PollAdapter(this, R.layout.activity_listview, pollObjects);
+        pollAdapter.setNotifyOnChange(true);
+        setListAdapter(pollAdapter);
         list = getListView();
 
         FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.floatingButtonAddPollScreen);
@@ -46,19 +57,6 @@ public class PollManagementActivity extends ListActivity {
                 startActivity(intent);
             }
         });
-/*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ctx, "Clicked", Toast.LENGTH_SHORT).show();
-               if (position == 0) {
-                   Intent intent = new Intent(view.getContext(), Assignment_1_Activity.class);
-                   startActivity(intent);
-                }
-            }
-        });
-  */
-
     }
 
 
@@ -71,7 +69,7 @@ public class PollManagementActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Notify for Poll - "+ position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Reminder Sent", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -80,7 +78,7 @@ public class PollManagementActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Result published - "+ position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Poll Result Published", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -89,7 +87,7 @@ public class PollManagementActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Deleted Successfully - " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Poll Deleted", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -105,12 +103,11 @@ public class PollManagementActivity extends ListActivity {
         });
 
         ToggleButton toggleButtonActivatePoll = (ToggleButton) v.findViewById(R.id.toggleButtonActivatePoll);
-
         toggleButtonActivatePoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(!isChecked)
-                    Toast.makeText(ctx, "Activated...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ctx, "Poll Activated", Toast.LENGTH_SHORT).show();
                 else {
                     Toast.makeText(ctx, "Should not allow to activate..", Toast.LENGTH_SHORT).show();
                 }

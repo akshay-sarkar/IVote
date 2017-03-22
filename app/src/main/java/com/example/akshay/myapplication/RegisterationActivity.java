@@ -6,10 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Created by Akshay on 2/8/2017.
- */
-
 public class RegisterationActivity extends Activity{
 
     private EditText FName, LName, EmailId, UTAID, Phone, PasswordReg;
@@ -27,18 +23,24 @@ public class RegisterationActivity extends Activity{
         Phone = (EditText) findViewById(R.id.editTextStudentPhone);
         PasswordReg = (EditText) findViewById(R.id.editTextStudentPasswordReg);
         btnSubmitRegister = (Button) findViewById(R.id.btnSubmitRegister);
+        btnClearRegister =  (Button) findViewById(R.id.btnClearRegister);
 
         btnSubmitRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* Collect All the Date and Send to Server*/
+                /* TODO:Collect All the Data and Send to Server */
             }
         });
 
         btnClearRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* Clear all the fields*/
+                FName.setText("");
+                LName.setText("");
+                EmailId.setText("");
+                UTAID.setText("");
+                Phone.setText("");
+                PasswordReg.setText("");
             }
         });
     }

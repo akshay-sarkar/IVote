@@ -23,9 +23,9 @@ public class VerifyUserActivity extends AppCompatActivity {
         buttonVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* Collect All the Date and Send to Server*/
+                /* Collect All the Data and Send to Server*/
 
-                /* one requst complete- call finish() to move back to login screen */
+                /* one request complete- call finish() to move back to login screen */
             }
         });
     }
