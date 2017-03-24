@@ -26,8 +26,8 @@ public class PollManagementActivity extends ListActivity {
     Context ctx;
     ListView list;
     PollAdapter pollAdapter;
-    // isAnyPollActive
-    boolean isAnyPollActive = false;
+    // numberOfPollActive should not be greater than 1.
+    public static int numberOfPollActive = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,11 @@ public class PollManagementActivity extends ListActivity {
         setContentView(R.layout.activity_poll_management);
 
         pollObjects = new ArrayList<>();
-        pollObjects.add(new PollEntity("Poll Name 1", "Start Date: 02/04/2017", "End Date: 02/06/2017" ));
-        pollObjects.add(new PollEntity("Poll Name 2", "Start Date: "+"02/07/2017", "End Date: "+"02/09/2017" ));
-        pollObjects.add(new PollEntity("Poll Name 3", "Start Date: "+"02/11/2017", "End Date: "+"02/13/2017" ));
-        pollObjects.add(new PollEntity("Poll Name 4", "Start Date: "+"02/17/2017", "End Date: "+"02/19/2017" ));
-        pollObjects.add(new PollEntity("Poll Name 5", "Start Date: "+"02/21/2017", "End Date: "+"02/23/2017" ));
+        pollObjects.add(new PollEntity("UTA Ambassador President", "Start Date: 02/04/2017", "End Date: 02/06/2017" ));
+        pollObjects.add(new PollEntity("UTA Mascot Men", "Start Date: "+"02/07/2017", "End Date: "+"02/09/2017" ));
+        pollObjects.add(new PollEntity("UTA Mascot Women", "Start Date: "+"02/11/2017", "End Date: "+"02/13/2017" ));
+        pollObjects.add(new PollEntity("UTA CS Nerd", "Start Date: "+"02/17/2017", "End Date: "+"02/19/2017" ));
+        pollObjects.add(new PollEntity("UTA Ambassador VC", "Start Date: "+"02/21/2017", "End Date: "+"02/23/2017" ));
 
         // FIREBASE TOKEN Collector
         System.out.println("TOKEN : "+ FirebaseInstanceId.getInstance().getToken());
@@ -69,7 +69,7 @@ public class PollManagementActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Reminder Sent", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Poll Reminder Sent Successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -78,7 +78,7 @@ public class PollManagementActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Poll Result Published", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Poll Result Notified Successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -87,7 +87,7 @@ public class PollManagementActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Poll Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Poll Deleted Succesfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -102,16 +102,6 @@ public class PollManagementActivity extends ListActivity {
             }
         });
 
-        ToggleButton toggleButtonActivatePoll = (ToggleButton) v.findViewById(R.id.toggleButtonActivatePoll);
-        toggleButtonActivatePoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!isChecked)
-                    Toast.makeText(ctx, "Poll Activated", Toast.LENGTH_SHORT).show();
-                else {
-                    Toast.makeText(ctx, "Should not allow to activate..", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
     }
 }

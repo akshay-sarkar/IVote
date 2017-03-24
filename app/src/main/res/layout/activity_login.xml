@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/email_utaid"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:text="abc@mavs.uta.edu"
             android:textSize="20sp" />
 

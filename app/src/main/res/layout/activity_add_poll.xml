@@ -67,16 +67,16 @@
         android:layout_alignBottom="@+id/textView10"
         android:layout_alignParentEnd="true"
         android:ems="10"
-        android:hint="Poll Start Date"
-        android:inputType="textPersonName" />
+        android:hint="MM/DD/YYYY"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextPollEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Poll End Date"
-        android:inputType="textPersonName"
+        android:hint="MM/DD/YYYY"
+        android:inputType="text"
         android:layout_alignBottom="@+id/textView11"
         android:layout_alignParentEnd="true" />
 

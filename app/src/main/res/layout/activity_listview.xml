@@ -14,7 +14,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:text="Poll Name "
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <ToggleButton
@@ -28,35 +28,35 @@
         android:layout_marginTop="5dp"/>
 
 
-        <ImageView
-            android:id="@+id/imageViewNotification"
-            android:src="@drawable/ic_notifications_black_48dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toggleButtonActivatePoll"
-            android:layout_toLeftOf="@+id/imageViewDelete"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"/>
+    <ImageView
+        android:id="@+id/imageViewNotification"
+        android:src="@drawable/ic_notifications_black_48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toggleButtonActivatePoll"
+        android:layout_toLeftOf="@+id/imageViewDelete"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"/>
 
-        <ImageView
-            android:id="@+id/imageViewDelete"
-            android:src="@drawable/ic_delete_black_48dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/imageViewPublish"
-            android:layout_below="@+id/toggleButtonActivatePoll"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"/>
+    <ImageView
+        android:id="@+id/imageViewDelete"
+        android:src="@drawable/ic_delete_black_48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/imageViewPublish"
+        android:layout_below="@+id/toggleButtonActivatePoll"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"/>
 
-        <ImageView
-            android:id="@+id/imageViewPublish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_public_black_48dp"
-            android:layout_below="@+id/toggleButtonActivatePoll"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"/>
+    <ImageView
+        android:id="@+id/imageViewPublish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_public_black_48dp"
+        android:layout_below="@+id/toggleButtonActivatePoll"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/textViewStartDate"

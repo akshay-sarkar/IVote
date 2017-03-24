@@ -101,11 +101,11 @@ public class ForgotAcitvity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             // execution of result of Long time consuming operation
             progressDialog.dismiss();
-
+            //Toast.makeText(context, "Password Sent to Registered Email-Id.", Toast.LENGTH_SHORT).show();
             if (resp.equals("Not Registered Student. Please Register Yourself")) {
                 Toast.makeText(context, "Not Registered Student. Please Register Yourself !!", Toast.LENGTH_LONG).show();
             } else if (resp.equals("Email Sent")) {
-                Toast.makeText(context, "Email Sent to Registered Email-Id.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Password Sent to Registered Email-Id.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }

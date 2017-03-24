@@ -108,8 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             if (resp.equals("Unsuccessfull")) {
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equals("Successfull")) {
-                Toast.makeText(context, "Successfull!!", Toast.LENGTH_LONG).show();
-
+                Toast.makeText(context, "Successfull", Toast.LENGTH_LONG).show();
             }
             /* Only to be allowed at success case */
             Intent intent = new Intent(context, PollManagementActivity.class);
