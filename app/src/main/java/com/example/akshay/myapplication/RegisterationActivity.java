@@ -127,9 +127,9 @@ public class RegisterationActivity extends Activity{
         protected void onPostExecute(String result) {
             // execution of result of Long time consuming operation
             progressDialog.dismiss();
-            //Toast.makeText(context, "Password Sent to Registered Email-Id.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Registration Successful. Check email for OTP.", Toast.LENGTH_SHORT).show();
             if (resp.equals("Registered")) {
-                Toast.makeText(context, "Registration Successful", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Registration Successful. Check email for OTP.", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, VerifyUserActivity.class);
                 startActivity(intent);
             } else if (resp.equals("Not Registered")) {

@@ -6,14 +6,24 @@ package com.example.akshay.myapplication.dao;
 
 public class PollEntity {
 
+    private int pollId;
     private String pollName;
     private String pollStartDate;
     private String pollEndDate;
 
-    public PollEntity(String pollName, String pollStartDate, String pollEndDate) {
+    public PollEntity(int pollId, String pollName, String pollStartDate, String pollEndDate) {
+        this.pollId = pollId;
         this.pollName = pollName;
         this.pollStartDate = pollStartDate;
         this.pollEndDate = pollEndDate;
+    }
+
+    public int getPollId() {
+        return pollId;
+    }
+
+    public void setPollId(int pollId) {
+        this.pollId = pollId;
     }
 
     public String getPollName() {
