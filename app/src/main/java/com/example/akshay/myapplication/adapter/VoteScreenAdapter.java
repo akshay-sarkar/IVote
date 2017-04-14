@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.akshay.myapplication.R;
 import com.example.akshay.myapplication.dao.CandidateEntity;
@@ -85,8 +86,25 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
                 if(isChecked && selectedCandidates.size()<2){
                     selectedCandidates.add(Integer.parseInt(buttonView.getTag().toString()));
                 }else{
-
+                    if(!isChecked && selectedCandidates.size()<2){
+                        int pos = selectedCandidates.indexOf(Integer.parseInt(buttonView.getTag().toString()));
+                        selectedCandidates.remove(pos);
+                    }
+                    if(selectedCandidates.size()==2){
+                        int pos = selectedCandidates.indexOf(Integer.parseInt(buttonView.getTag().toString()));
+                        if(buttonView.isChecked() && pos ==-1){
+                            buttonView.toggle();
+                            Toast.makeText(ctx, "Max 2 Candaidate can be Voted.",Toast.LENGTH_SHORT).show();
+                        }
+//                        else if(buttonView.isChecked() && pos !=-1){
+//                            selectedCandidates.remove(pos);
+//                        }
+                        else if(!buttonView.isChecked() && pos !=-1){
+                            selectedCandidates.remove(pos);
+                        }
+                    }
                 }
+                System.out.println( "selectedCandidates  = "+selectedCandidates);
             }
         });
 
