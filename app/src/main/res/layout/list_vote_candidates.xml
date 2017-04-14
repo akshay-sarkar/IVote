@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/list_vote_candidate">
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/last_first_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox1"
+        android:layout_alignBottom="@+id/checkBox1"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/checkBox1"
+        android:text="Last Name, First Name"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gender_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/last_first_name"
+        android:layout_below="@+id/last_first_name"
+        android:text="Gender"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_keyboard_arrow_down_black_48dp"
+        android:layout_alignBottom="@+id/gender_candidate"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="19dp"
+        android:id="@+id/down_arrow_image"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_keyboard_arrow_down_black_48dp"
+        android:layout_alignBottom="@+id/gender_candidate"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="19dp"
+        android:rotation="180"
+        android:visibility="invisible"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:layout_alignStart="@+id/gender_candidate"
+        android:layout_below="@+id/gender_candidate"
+        android:id="@+id/line_seperator_candidate" />
+
+    <TextView
+        android:id="@+id/department_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/line_seperator_candidate"
+        android:layout_below="@+id/line_seperator_candidate"
+        android:text="Department"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/qualities_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/department_candidate"
+        android:layout_below="@+id/department_candidate"
+        android:text="Qualities"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/interest_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/qualities_candidate"
+        android:layout_below="@+id/qualities_candidate"
+        android:text="Interests"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/student_organization_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/interest_candidate"
+        android:layout_below="@+id/interest_candidate"
+        android:text="Student Organizations"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/community_service_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/student_organization_candidate"
+        android:layout_below="@+id/student_organization_candidate"
+        android:text="Community Service Hours"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+</RelativeLayout>
