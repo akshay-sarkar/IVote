@@ -105,13 +105,16 @@ public class LoginActivity extends AppCompatActivity {
             // execution of result of Long time consuming operation
             progressDialog.dismiss();
 
-            if (resp.equals("Unsuccessfull")) {
+            if (resp.equalsIgnoreCase("Unsuccessfull")) {
                 Toast.makeText(context, "Login Unsuccessfull!!", Toast.LENGTH_LONG).show();
-            } else if (resp.equals("Successfull")) {
+            } else if (resp.equalsIgnoreCase("Successfull")) {
                 Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
+            }else if(resp.equalsIgnoreCase("Admin")){
+                Intent intent = new Intent(context, PollManagementActivity.class);
+                startActivity(intent);
             }
             /* Only to be allowed at success case */
-            Intent intent = new Intent(context, PollManagementActivity.class);
+            Intent intent = new Intent(context, VoteScreenActivity.class);
             startActivity(intent);
         }
     }

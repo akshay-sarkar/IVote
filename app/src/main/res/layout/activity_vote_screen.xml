@@ -31,7 +31,7 @@
         tools:layout_constraintRight_creator="1" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/castVote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="52dp"

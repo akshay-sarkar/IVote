@@ -25,7 +25,7 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
     private ArrayList<CandidateEntity> candidateData;
     private int mViewResourceId;
     private Context ctx;
-    public ArrayList<Integer> selectedCandidates = new ArrayList<>();
+    public static ArrayList<Integer> selectedCandidates = new ArrayList<>();
 
     public VoteScreenAdapter(Context context, int textViewResourceId, ArrayList<CandidateEntity> data) {
         super(context, textViewResourceId, data);
@@ -94,11 +94,8 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
                         int pos = selectedCandidates.indexOf(Integer.parseInt(buttonView.getTag().toString()));
                         if(buttonView.isChecked() && pos ==-1){
                             buttonView.toggle();
-                            Toast.makeText(ctx, "Max 2 Candaidate can be Voted.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ctx, "Max 2 Candidates can be Voted.",Toast.LENGTH_SHORT).show();
                         }
-//                        else if(buttonView.isChecked() && pos !=-1){
-//                            selectedCandidates.remove(pos);
-//                        }
                         else if(!buttonView.isChecked() && pos !=-1){
                             selectedCandidates.remove(pos);
                         }
