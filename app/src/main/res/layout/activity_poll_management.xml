@@ -10,11 +10,14 @@
 
     <TextView
         android:id="@+id/mainText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Poll Management Screen"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        />
 
     <TextView android:id="@android:id/empty"
         android:layout_width="match_parent"

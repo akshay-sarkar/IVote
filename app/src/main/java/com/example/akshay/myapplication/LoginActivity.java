@@ -86,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
                     in.close();
                 }
                 resp = responseString.toString();
-
             } catch (Exception e) {
                 e.printStackTrace();
                 resp = e.getMessage();
@@ -114,8 +113,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             /* Only to be allowed at success case */
-            Intent intent = new Intent(context, VoteScreenActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(context, PollManagementActivity.class);
+            //startActivity(intent);
         }
     }
 }

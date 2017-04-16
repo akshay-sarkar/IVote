@@ -30,7 +30,6 @@ public class PollManagementActivity extends ListActivity {
     ArrayList<PollEntity> pollObjects;
     Context ctx;
     ListView list;
-    PollAdapter pollAdapter;
     // numberOfPollActive should not be greater than 1.
     public static int numberOfPollActive = 0;
     ProgressDialog progressDialog;
@@ -62,8 +61,19 @@ public class PollManagementActivity extends ListActivity {
         runner.execute(url);
     }
 
+    //When you come from different Activity to this activity again
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Preparing Paramaneters to pass in Async Thread
+        String url ="/displayPoll";
+        //Async Runner
+        PollManagementActivity.AsyncTaskRunner runner = new PollManagementActivity.AsyncTaskRunner();
+        runner.execute(url);
+    }
+
     /* Thread for Server Interation - Pass paramenter and URL */
-    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
+    public class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
         private String resp;
 
@@ -130,56 +140,11 @@ public class PollManagementActivity extends ListActivity {
                     pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
                 }
 
-                pollAdapter = new PollAdapter(ctx, R.layout.activity_listview, pollObjects);
+                PollAdapter pollAdapter = new PollAdapter(ctx, R.layout.activity_listview, pollObjects);
                 pollAdapter.setNotifyOnChange(true);
                 setListAdapter(pollAdapter);
                 list = getListView();
             }
         }
-    }
-
-    @Override
-    protected void onListItemClick(ListView l, View v, int itemPosition, long id) {
-        super.onListItemClick(l, v, itemPosition, id);
-
-        ImageView imageViewNotification = (ImageView)v.findViewById(R.id.imageViewNotification);
-        imageViewNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Poll Reminder Sent Successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        ImageView imageViewPublishResult = (ImageView)v.findViewById(R.id.imageViewPublish);
-        imageViewPublishResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Poll Result Notified Successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        ImageView imageViewDelete = (ImageView)v.findViewById(R.id.imageViewDelete);
-        imageViewDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Poll Deleted Succesfully", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        TextView textViewPollName = (TextView) v.findViewById(R.id.textLabelPollName);
-        textViewPollName.setClickable(true);
-        textViewPollName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = list.getPositionForView((View) v.getParent());
-                Toast.makeText(ctx, "Poll Named Clicked - "+ position, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
     }
 }

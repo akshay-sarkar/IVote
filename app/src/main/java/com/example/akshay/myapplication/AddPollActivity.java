@@ -110,7 +110,6 @@ public class AddPollActivity extends AppCompatActivity {
             } else if (resp.equals("Created")) {
                 Toast.makeText(AddPollActivity.this, "Poll Added", Toast.LENGTH_SHORT).show();
                 finish();
-
             }
         }
     }

@@ -99,12 +99,24 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
         android:text="LOGIN SCREEN"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView17"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:text="iVote"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40sp"
+        android:textStyle="bold|italic" />
 
 
 </RelativeLayout>
