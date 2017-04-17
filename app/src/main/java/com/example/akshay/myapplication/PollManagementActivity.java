@@ -54,11 +54,11 @@ public class PollManagementActivity extends ListActivity {
             }
         });
 
-        //Preparing Paramaneters to pass in Async Thread
-        String url ="/displayPoll";
-        //Async Runner
-        PollManagementActivity.AsyncTaskRunner runner = new PollManagementActivity.AsyncTaskRunner();
-        runner.execute(url);
+//        //Preparing Paramaneters to pass in Async Thread
+//        String url ="/displayPoll";
+//        //Async Runner
+//        PollManagementActivity.AsyncTaskRunner runner = new PollManagementActivity.AsyncTaskRunner();
+//        runner.execute(url);
     }
 
     //When you come from different Activity to this activity again
@@ -137,7 +137,7 @@ public class PollManagementActivity extends ListActivity {
                 for(int i = 0; i< responsePolls.length; i++){
                     Log.d("POLLS "+i, responsePolls[i]);
                     String[] individualPollColumns = responsePolls[i].split(columentSeperator);
-                    pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
+                    pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3], individualPollColumns[4] ));
                 }
 
                 PollAdapter pollAdapter = new PollAdapter(ctx, R.layout.activity_listview, pollObjects);

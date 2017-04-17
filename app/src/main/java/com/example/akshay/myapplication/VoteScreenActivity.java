@@ -47,21 +47,26 @@ public class VoteScreenActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_screen);
         context = getApplicationContext();
-        voteScreenAdapter = new VoteScreenAdapter(context, R.layout.list_vote_candidates, candidateEntities);
+
+        btnCastVote = (Button) findViewById(R.id.castVote);
+
+        voteScreenAdapter = new VoteScreenAdapter(context, R.layout.list_vote_candidates, candidateEntities, btnCastVote);
         setListAdapter(voteScreenAdapter);
         list = getListView();
-        btnCastVote = (Button) findViewById(R.id.castVote);
+
         btnCastVote.setEnabled(false);
         btnCastVote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(VoteScreenAdapter.selectedCandidates.size()<=0){
+                    btnCastVote.setEnabled(false);
                     Toast.makeText(context, "Select Candidates to Vote!!",Toast.LENGTH_SHORT).show();
                 }else{
+                    btnCastVote.setEnabled(true);
                     //Setting Progress Dialog
-                    progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
+                    //progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
                     //Preparing Paramaneters to pass in Async Thread
-                    String url ="/login?utaID="+ utaID + "&candidateIds="+  VoteScreenAdapter.selectedCandidates.toString();
+                    String url ="/castVote?utaID="+ utaID + "&candidateIds="+  VoteScreenAdapter.selectedCandidates.toString();
                     //Async Runner
                     VoteScreenActivity.AsyncTaskRunner runner = new VoteScreenActivity.AsyncTaskRunner();
                     runner.execute(url);
@@ -113,7 +118,7 @@ public class VoteScreenActivity extends ListActivity {
         @Override
         protected void onPostExecute(String result) {
             // execution of result of Long time consuming operation
-            progressDialog.dismiss();
+            //progressDialog.dismiss();
 
             if (resp.equalsIgnoreCase("Voted")) {
                 Toast.makeText(context, "Vote Casted", Toast.LENGTH_LONG).show();

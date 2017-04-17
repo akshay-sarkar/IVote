@@ -60,6 +60,8 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
         TextView pollStartDate = (TextView) convertView.findViewById(R.id.textViewStartDate);
         TextView pollEndDate = (TextView) convertView.findViewById(R.id.textViewEndDate);
         ToggleButton toggleButtonActivatePoll = (ToggleButton) convertView.findViewById(R.id.toggleButtonActivatePoll);
+        toggleButtonActivatePoll.setTag(pollObject.getPollId());
+        toggleButtonActivatePoll.setChecked(Boolean.parseBoolean(pollObject.getIsPollActive()));
 
         if (pollObject != null) {
             toggleButtonActivatePoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -68,14 +70,25 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
                     if(isChecked) {
                         if(PollManagementActivity.numberOfPollActive < 1){ //Flag for count not more than poll to be active.
                             ++PollManagementActivity.numberOfPollActive;
-                            Toast.makeText(ctx, "Poll Activated", Toast.LENGTH_SHORT).show();
+
+                            //Preparing Paramaneters to pass in Async Thread
+                            String url ="/activatePoll?pollId="+pollObject.getPollId();
+                            //Async Runner
+                            PollAdapter.AsyncTaskRunner runner = new PollAdapter.AsyncTaskRunner();
+                            runner.execute(url);
+                            //Toast.makeText(ctx, "Poll Activated", Toast.LENGTH_SHORT).show();
                         }else{
                             buttonView.setChecked(false);
                             Toast.makeText(ctx, "Only 1 Poll could be Active.", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(ctx, "Poll Deactivated", Toast.LENGTH_SHORT).show();
                         PollManagementActivity.numberOfPollActive = PollManagementActivity.numberOfPollActive -1;
+                        //Preparing Paramaneters to pass in Async Thread
+                        String url ="/deactivatePoll?pollId="+pollObject.getPollId();
+                        //Async Runner
+                        PollAdapter.AsyncTaskRunner runner = new PollAdapter.AsyncTaskRunner();
+                        runner.execute(url);
+                        //Toast.makeText(ctx, "Poll Deactivated", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -188,7 +201,9 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
                 Toast.makeText(ctx, "Login Unsuccessfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equalsIgnoreCase("Poll Reminder Sent") ||
                           resp.equalsIgnoreCase("Result Sent") ||
-                            resp.equalsIgnoreCase("Poll Deleted")) {
+                            resp.equalsIgnoreCase("Poll Deleted") ||
+                              resp.equalsIgnoreCase("Poll Activated") ||
+                                resp.equalsIgnoreCase("Poll Dectivated")) {
                 Toast.makeText(ctx, resp.toString(), Toast.LENGTH_LONG).show();
                 if(resp.equalsIgnoreCase("Poll Deleted")){
                     //displayPollReTrigger();
@@ -255,7 +270,7 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
             for(int i = 0; i< responsePolls.length; i++){
                 Log.d("POLLS "+i, responsePolls[i]);
                 String[] individualPollColumns = responsePolls[i].split(columentSeperator);
-                pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
+                pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3], individualPollColumns[4] ));
             }
             refreshEvents(pollObjects);
         }

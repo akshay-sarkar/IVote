@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -26,13 +27,15 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
     private int mViewResourceId;
     private Context ctx;
     public static ArrayList<Integer> selectedCandidates = new ArrayList<>();
+    public Button btnCastVote;
 
-    public VoteScreenAdapter(Context context, int textViewResourceId, ArrayList<CandidateEntity> data) {
+    public VoteScreenAdapter(Context context, int textViewResourceId, ArrayList<CandidateEntity> data, Button btnCastVote) {
         super(context, textViewResourceId, data);
         ctx = context;
         candidateData = data;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mViewResourceId = textViewResourceId;
+        this.btnCastVote = btnCastVote;
     }
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = mInflater.inflate(mViewResourceId, null);
@@ -101,6 +104,10 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
                         }
                     }
                 }
+                if(selectedCandidates.size()==2 || selectedCandidates.size() ==1 )
+                    btnCastVote.setEnabled(true);
+                else
+                    btnCastVote.setEnabled(false);
                 System.out.println( "selectedCandidates  = "+selectedCandidates);
             }
         });
