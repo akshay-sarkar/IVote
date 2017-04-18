@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Email ld"
-                android:inputType="textPersonName" />
+                android:inputType="textEmailAddress" />
 
         </TableRow>
 
@@ -108,7 +108,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="UTA ID"
-                android:inputType="textPersonName" />
+                android:inputType="number"
+                android:maxLength="10" />
         </TableRow>
 
         <TableRow
@@ -128,7 +129,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
-                android:inputType="textPersonName" />
+                android:inputType="phone"
+                android:maxLength="12" />
         </TableRow>
 
         <TableRow
@@ -148,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
 
         </TableRow>
 

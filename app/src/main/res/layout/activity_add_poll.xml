@@ -36,7 +36,7 @@
         android:text="Poll Start Date"
         android:textSize="18sp"
         android:layout_marginTop="48dp"
-        android:layout_below="@+id/editText9"
+        android:layout_below="@+id/editTextPollName"
         android:layout_alignStart="@+id/textView9" />
 
     <TextView
@@ -45,12 +45,12 @@
         android:layout_height="wrap_content"
         android:text="Poll End Date"
         android:textSize="18sp"
-        android:layout_below="@+id/editText10"
+        android:layout_below="@+id/editTextPollStartDate"
         android:layout_alignStart="@+id/textView10"
         android:layout_marginTop="52dp" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/editTextPollName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView9"
@@ -61,31 +61,31 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/editTextPollStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView10"
         android:layout_alignParentEnd="true"
         android:ems="10"
-        android:hint="Poll Start Date"
-        android:inputType="textPersonName" />
+        android:hint="MM/DD/YYYY"
+        android:inputType="text" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/editTextPollEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView11"
-        android:layout_alignParentEnd="true"
         android:ems="10"
-        android:hint="Poll End Date"
-        android:inputType="textPersonName" />
+        android:hint="MM/DD/YYYY"
+        android:inputType="text"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAddPoll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/editText11"
+        android:layout_below="@+id/editTextPollEndDate"
         android:layout_marginEnd="60dp"
         android:layout_marginTop="45dp"
         android:text="Add" />

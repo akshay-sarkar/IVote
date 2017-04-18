@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".VoteScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,8 +22,7 @@
         <activity
             android:name=".RegisterationActivity"
             android:label="@string/app_name" />
-        <activity android:name=".PollManagementActivity">
-        </activity>
+        <activity android:name=".PollManagementActivity" />
         <activity android:name=".AddPollActivity" />
         <activity android:name=".ForgotAcitvity" />
         <activity android:name=".VerifyUserActivity" />
@@ -33,14 +32,12 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
-        <service
-            android:name=".messagingService.CloudMessagingService">
+        <service android:name=".messagingService.CloudMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
+        <!--<activity android:name=".VoteScreenActivity"></activity>-->
     </application>
 
 </manifest>

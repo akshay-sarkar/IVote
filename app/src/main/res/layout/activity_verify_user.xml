@@ -22,12 +22,12 @@ tools:context="com.example.akshay.myapplication.VerifyUserActivity">
         android:id="@+id/editTextEmailVerify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextOTPVerify"
+        android:layout_alignStart="@+id/editTextOTPVerify"
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_above="@+id/editTextOTPVerify"
-        android:layout_alignStart="@+id/editTextOTPVerify" />
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/textView14"
@@ -44,12 +44,12 @@ tools:context="com.example.akshay.myapplication.VerifyUserActivity">
         android:id="@+id/editTextOTPVerify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="21dp"
         android:ems="10"
         android:hint="OTP"
-        android:inputType="textPersonName"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="21dp" />
+        android:inputType="number" />
 
     <Button
         android:id="@+id/buttonVerify"
