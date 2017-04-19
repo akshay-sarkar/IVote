@@ -7,4 +7,8 @@
     <string name="password">Password</string>
     <string name="poll_managment">Poll Managment</string>
     <string name="forgot_password">Forgot Password</string>
+    <string name="ViewReuslt">Congratulations to the Winners!!! The Winners are :</string>
+    <string name="winner_1">Winner 1 :</string>
+    <string name="view_reuslt">View Reuslt</string>
+    <string name="winner_2">Winner 2 :</string>
 </resources>
