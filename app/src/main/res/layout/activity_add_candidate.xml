@@ -31,13 +31,13 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/FirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="First Name" />
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/FirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter First Name"
@@ -49,13 +49,13 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/LastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Last Name" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/LastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter Last Name"
@@ -67,13 +67,13 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/Emailid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="UTA Email ID" />
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/Emailid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter Email ID"
@@ -101,12 +101,14 @@
                         android:text="Male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioButton1" />
+                        android:id="@+id/Male"
+                        android:onClick="onRadioButtonClicked"/>
                     <RadioButton
                         android:text="Female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioButton2" />
+                        android:id="@+id/Female"
+                        android:onClick="onRadioButtonClicked"/>
                 </RadioGroup>
             </TableRow>
 
@@ -141,7 +143,7 @@
                     android:text="Hours" />
 
                 <Spinner
-                    android:id="@+id/spinner4"
+                    android:id="@+id/spinner2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
@@ -162,10 +164,11 @@
                     android:text="Qualities" />
 
                 <CheckBox
-                    android:id="@+id/checkBox1"
+                    android:id="@+id/chk1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Honesty" />
+                    android:text="Honesty"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -175,10 +178,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/chk2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Problem Solver" />
+                    android:text="Problem Solver"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -188,10 +192,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/chk3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Flexible and High Spirited"/>
+                    android:text="Flexible and High Spirited"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -201,10 +206,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox4"
+                    android:id="@+id/chk4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Team Leader" />
+                    android:text="Team Leader"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -214,10 +220,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox5"
+                    android:id="@+id/chk5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Realastic and Rational" />
+                    android:text="Realastic and Rational"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -229,10 +236,11 @@
                     android:text="Interest" />
 
                 <CheckBox
-                    android:id="@+id/checkBox6"
+                    android:id="@+id/chk6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sports" />
+                    android:text="Sports"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -242,10 +250,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox7"
+                    android:id="@+id/chk7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dance,Drama,Music" />
+                    android:text="Dance,Drama,Music"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -255,10 +264,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox8"
+                    android:id="@+id/chk8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Academic"/>
+                    android:text="Academic"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -268,10 +278,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox9"
+                    android:id="@+id/chk9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Social Work" />
+                    android:text="Social Work"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -281,10 +292,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox10"
+                    android:id="@+id/chk10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Creative Work and Art" />
+                    android:text="Creative Work and Art"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
 
             <TableRow
@@ -297,10 +309,11 @@
                     android:text="Student Organization" />
 
                 <CheckBox
-                    android:id="@+id/checkBox11"
+                    android:id="@+id/chk11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Healthcare Community" />
+                    android:text="Healthcare Community"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -310,7 +323,7 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox12"
+                    android:id="@+id/chk12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Art History Student Union" />
@@ -323,10 +336,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox13"
+                    android:id="@+id/chk13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="International Students Org."/>
+                    android:text="International Students Org."
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -336,10 +350,11 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox14"
+                    android:id="@+id/chk14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sports Club" />
+                    android:text="Sports Club"
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -349,15 +364,16 @@
                     android:text="" />
 
                 <CheckBox
-                    android:id="@+id/checkBox15"
+                    android:id="@+id/chk15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Engineering Students Org." />
+                    android:text="Engineering Students Org."
+                    android:onClick="onCheckboxClicked"/>
             </TableRow>
 
         </TableLayout>
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/add"
 
             android:text="ADD"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
