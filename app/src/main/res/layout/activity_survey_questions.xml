@@ -40,25 +40,35 @@
             android:text="@string/one"
             />
         <CheckBox
+            android:id="@+id/chk1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Honesty"/>
+            android:text="Honesty"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Problem solving skills"/>
+            android:text="Problem solving skills"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Flexible and high spirited"/>
+            android:text="Flexible and high spirited"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Team leader"/>
+            android:text="Team leader"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Realistic and Rational"/>
+            android:text="Realistic and Rational"
+            android:onClick="onCheckboxClicked"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,25 +81,35 @@
             android:text="@string/two"
             />
         <CheckBox
+            android:id="@+id/chk6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sports"/>
+            android:text="Sports"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dance Drama Music"/>
+            android:text="Dance Drama Music"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Academics"/>
+            android:text="Academics"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Social Work"/>
+            android:text="Social Work"
+            android:onClick="onCheckboxClicked"/>
         <CheckBox
+            android:id="@+id/chk10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Creative work and art"/>
+            android:text="Creative work and art"
+            android:onClick="onCheckboxClicked"/>
     </LinearLayout>
 
     <LinearLayout

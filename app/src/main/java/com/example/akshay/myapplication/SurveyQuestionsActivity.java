@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,6 +30,8 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
     HttpURLConnection connection;
     String studentOrganization, communityHour, department;
     Context context;
+    ArrayList<String> list ;
+    CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +42,97 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
         addItemsOnSpinner2();
         addItemsOnSpinner3();
         addListenerOnButton();
+        list = new ArrayList<String>();
+
+
+        chk1=(CheckBox)findViewById(R.id.chk1);
+        chk2=(CheckBox)findViewById(R.id.chk2);
+        chk3=(CheckBox)findViewById(R.id.chk3);
+        chk4=(CheckBox)findViewById(R.id.chk4);
+        chk5=(CheckBox)findViewById(R.id.chk5);
+        chk6=(CheckBox)findViewById(R.id.chk6);
+        chk7=(CheckBox)findViewById(R.id.chk7);
+        chk8=(CheckBox)findViewById(R.id.chk8);
+        chk9=(CheckBox)findViewById(R.id.chk9);
+        chk10=(CheckBox)findViewById(R.id.chk10);
+
 
         c=(Button) findViewById(R.id.submit);
         d=(Button) findViewById(R.id.logout);
+    }
+    public void onCheckboxClicked(View view) {
+
+        boolean checked = ((CheckBox) view).isChecked();
+
+        switch (view.getId()) {
+            case R.id.chk1:
+                if (checked)
+                    list.add(chk1.getTag().toString());
+                else
+                    list.remove(chk1.getTag().toString());
+
+
+                break;
+            case R.id.chk2:
+                if (checked)
+                    list.add(chk2.getTag().toString());
+                else
+                    list.remove(chk2.getTag().toString());
+
+                break;
+
+            case R.id.chk3:
+                if (checked)
+                    list.add(chk3.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk4:
+                if (checked)
+                    list.add(chk4.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk5:
+                if (checked)
+                    list.add(chk5.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk6:
+                if (checked)
+
+                    list.add(chk6.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk7:
+
+                if (checked)
+                    list.add(chk7.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk8:
+                if (checked)
+                    list.add(chk8.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk9:
+                if (checked)
+                    list.add(chk9.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+            case R.id.chk10:
+                if (checked)
+                    list.add(chk10.getTag().toString());
+                else list.remove(chk1.getTag().toString());
+
+                break;
+
+        }
     }
     public void addItemsOnSpinner1() {
 
