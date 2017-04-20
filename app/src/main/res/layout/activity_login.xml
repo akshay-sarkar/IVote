@@ -70,7 +70,7 @@
             android:ems="10"
             android:hint="@string/email_utaid"
             android:inputType="textEmailAddress"
-            android:text="abc@mavs.uta.edu"
+            android:text="akshay.sarkar@mavs.uta.edu"
             android:textSize="20sp" />
 
         <EditText
@@ -80,7 +80,7 @@
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:text="admin"
+            android:text="12345"
             android:textSize="20sp" />
 
         <Button

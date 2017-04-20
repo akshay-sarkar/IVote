@@ -108,6 +108,8 @@ public class LoginActivity extends AppCompatActivity {
             if (resp.equalsIgnoreCase("Unsuccessfull")) {
                 Toast.makeText(context, "Login Unsuccessfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equalsIgnoreCase("Successfull")) {
+                Intent intent = new Intent(context, SurveyActivity.class);
+                startActivity(intent);
                 Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
             }else if(resp.equalsIgnoreCase("Admin")){
                 Intent intent = new Intent(context, PollManagementActivity.class);

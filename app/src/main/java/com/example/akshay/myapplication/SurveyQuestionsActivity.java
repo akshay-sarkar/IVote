@@ -1,5 +1,6 @@
 package com.example.akshay.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.akshay.myapplication.configuration.ConfigurationFile;
 
@@ -25,11 +27,14 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
     Button c,d;
     Spinner sp1,sp2,sp3;
     HttpURLConnection connection;
+    String studentOrganization, communityHour, department;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_questions);
+        context = getApplicationContext();
         addItemsOnSpinner1();
         addItemsOnSpinner2();
         addItemsOnSpinner3();
@@ -72,11 +77,11 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
 
         sp1 = (Spinner) findViewById(R.id.sp1);
         List<String> list = new ArrayList<String>();
-        list.add("health care community");
-        list.add("art,history student union");
-        list.add("international student organization");
-        list.add("engineering student association");
-        list.add("sports club");
+        list.add("Health Care Community");
+        list.add("Art,History Student Union");
+        list.add("International Student Organization");
+        list.add("Engineering Student Association");
+        list.add("Sports Club");
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
@@ -89,15 +94,12 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
         sp1 = (Spinner) findViewById(R.id.sp1);
         sp2 = (Spinner) findViewById(R.id.sp2);
         sp3 = (Spinner) findViewById(R.id.sp3);
-    }
-
-    public void Submit(View v) {
 
         sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
-                String selecteditem = sp1.getSelectedItem().toString();
+                studentOrganization = sp1.getSelectedItem().toString();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -109,7 +111,7 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
-                String selecteditem = sp2.getSelectedItem().toString();
+                communityHour = sp2.getSelectedItem().toString();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -121,7 +123,7 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
-                String selecteditem = sp3.getSelectedItem().toString();
+                department = sp3.getSelectedItem().toString();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -130,11 +132,19 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
             }
         });
 
+    }
 
-        //Async Runner
-        AsyncTaskRunner runner = new AsyncTaskRunner();
-        runner.execute(url);
+    public void Submit(View v) {
 
+        if(studentOrganization.isEmpty() || communityHour.isEmpty() || department.isEmpty()){
+            Toast.makeText(context, "Fill in all the details!!", Toast.LENGTH_SHORT).show();
+        }else{
+            //Preparing Paramaneters to pass in Async Thread
+            String url ="/surveyData?utaID="+1000;
+            //Async Runner
+            AsyncTaskRunner runner = new AsyncTaskRunner();
+            runner.execute(url);
+        }
     }
 
     /* Thread for Server Interation - Pass paramenter and URL */
