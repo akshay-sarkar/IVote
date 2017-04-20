@@ -11,4 +11,35 @@
     <string name="winner_1">Winner 1 :</string>
     <string name="view_reuslt">View Reuslt</string>
     <string name="winner_2">Winner 2 :</string>
+
+    <string name="skip">Choose to contiue or skip the survey</string>
+    <string name="one">What are your best qualities?</string>
+    <string name="two">What are your interests?</string>
+    <string name="three">What student organization do you belong to?</string>
+    <string name="four">How many hours of community service dedicated?</string>
+    <string name="five">Which department are you from?</string>
+    <string-array name="org">
+        <item>health care community</item>
+        <item>art,history student union</item>
+        <item>international student organization</item>
+        <item>engineering student association</item>
+        <item>sports club</item>
+
+    </string-array>
+    <string-array name="csh">
+        <item>0-25</item>
+        <item>26-50</item>
+        <item>51-75</item>
+        <item>76-100</item>
+        <item>100 and more</item>
+
+    </string-array>
+    <string-array name="dept">
+        <item>Medical Department</item>
+        <item>Business Department</item>
+        <item>Department of Social Work</item>
+        <item>School of Art</item>
+        <item>Engineering Department</item>
+
+    </string-array>
 </resources>

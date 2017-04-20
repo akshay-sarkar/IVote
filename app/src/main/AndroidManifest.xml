@@ -40,7 +40,9 @@
         </service>
 
         <activity android:name=".VoteScreenActivity" />
-        <activity android:name=".ViewResultActivity"></activity>
+        <activity android:name=".ViewResultActivity" />
+        <activity android:name=".SurveyActivity" />
+        <activity android:name=".SurveyQuestionsActivity"></activity>
     </application>
 
 </manifest>
