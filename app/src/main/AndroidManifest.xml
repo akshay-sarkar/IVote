@@ -42,7 +42,8 @@
         <activity android:name=".VoteScreenActivity" />
         <activity android:name=".ViewResultActivity" />
         <activity android:name=".SurveyActivity" />
-        <activity android:name=".SurveyQuestionsActivity"></activity>
+        <activity android:name=".SurveyQuestionsActivity" />
+        <activity android:name=".AddCandidateActivity"></activity>
     </application>
 
 </manifest>
