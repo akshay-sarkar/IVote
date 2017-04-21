@@ -108,7 +108,7 @@
             android:id="@+id/chk10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Creative work and art"
+            android:text="Creative work and Art"
             android:onClick="onCheckboxClicked"/>
     </LinearLayout>
 

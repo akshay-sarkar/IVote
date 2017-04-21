@@ -30,7 +30,8 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
     HttpURLConnection connection;
     String studentOrganization, communityHour, department;
     Context context;
-    ArrayList<String> list ;
+    ArrayList<String> qualitiesList ;
+    ArrayList<String> interestList ;
     CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10;
 
     @Override
@@ -42,8 +43,8 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
         addItemsOnSpinner2();
         addItemsOnSpinner3();
         addListenerOnButton();
-        list = new ArrayList<String>();
-
+        qualitiesList = new ArrayList<String>();
+        interestList = new ArrayList<String>();
 
         chk1=(CheckBox)findViewById(R.id.chk1);
         chk2=(CheckBox)findViewById(R.id.chk2);
@@ -67,68 +68,75 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.chk1:
                 if (checked)
-                    list.add(chk1.getTag().toString());
+                    qualitiesList.add(chk1.getText().toString());
                 else
-                    list.remove(chk1.getTag().toString());
+                    qualitiesList.remove(chk1.getText().toString());
 
 
                 break;
             case R.id.chk2:
                 if (checked)
-                    list.add(chk2.getTag().toString());
+                    qualitiesList.add(chk2.getText().toString());
                 else
-                    list.remove(chk2.getTag().toString());
+                    qualitiesList.remove(chk2.getText().toString());
 
                 break;
 
             case R.id.chk3:
                 if (checked)
-                    list.add(chk3.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    qualitiesList.add(chk3.getText().toString());
+                else
+                    qualitiesList.remove(chk3.getText().toString());
 
                 break;
             case R.id.chk4:
                 if (checked)
-                    list.add(chk4.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    qualitiesList.add(chk4.getText().toString());
+                else
+                    qualitiesList.remove(chk4.getText().toString());
 
                 break;
             case R.id.chk5:
                 if (checked)
-                    list.add(chk5.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    qualitiesList.add(chk5.getText().toString());
+                else
+                    qualitiesList.remove(chk5.getText().toString());
 
                 break;
             case R.id.chk6:
                 if (checked)
-
-                    list.add(chk6.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    interestList.add(chk6.getText().toString());
+                else
+                    interestList.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk7:
 
                 if (checked)
-                    list.add(chk7.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    interestList.add(chk7.getText().toString());
+                else
+                    interestList.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk8:
                 if (checked)
-                    list.add(chk8.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    interestList.add(chk8.getText().toString());
+                else
+                    interestList.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk9:
                 if (checked)
-                    list.add(chk9.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    interestList.add(chk9.getText().toString());
+                else
+                    interestList.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk10:
                 if (checked)
-                    list.add(chk10.getTag().toString());
-                else list.remove(chk1.getTag().toString());
+                    interestList.add(chk10.getText().toString());
+                else
+                    interestList.remove(chk10.getText().toString());
 
                 break;
 
@@ -227,11 +235,14 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
 
     public void Submit(View v) {
 
-        if(studentOrganization.isEmpty() || communityHour.isEmpty() || department.isEmpty()){
+        if(studentOrganization.isEmpty() || communityHour.isEmpty() || department.isEmpty()
+                && qualitiesList.size() > 0 && interestList.size() >0){
             Toast.makeText(context, "Fill in all the details!!", Toast.LENGTH_SHORT).show();
         }else{
-            //Preparing Paramaneters to pass in Async Thread
-            String url ="/surveyData?utaID="+1000;
+
+            //Preparing Parameters to pass in Async Thread
+            String url ="/surveyData?studentOrganization="+studentOrganization+ "&communityHour="+communityHour
+                    +"&department="+department+"&qualities="+qualitiesList.toString()+"&interest="+interestList.size() ;
             //Async Runner
             AsyncTaskRunner runner = new AsyncTaskRunner();
             runner.execute(url);
@@ -278,7 +289,19 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
             return resp;
         }
 
+        @Override
+        protected void onPostExecute(String result) {
+
+            if(resp.equalsIgnoreCase("")){
+                Intent intent = new Intent(context, VoteScreenActivity.class);
+                startActivity(intent);
+            }
+            /* Only to be allowed at success case */
+            //Intent intent = new Intent(context, PollManagementActivity.class);
+            //startActivity(intent);
+        }
     }
+
     public void Logout(View view){
 
         Intent i=new Intent(this,LoginActivity.class);
