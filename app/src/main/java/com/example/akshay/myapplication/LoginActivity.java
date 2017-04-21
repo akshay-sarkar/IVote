@@ -25,10 +25,27 @@ public class LoginActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     Context context;
     HttpURLConnection connection;
+    int backButtonCount =0;
 
+    /**
+     * Back button listener.
+     * Will close the application if the back button pressed twice.
+     */
     @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
+    public void onBackPressed()
+    {
+        if(backButtonCount >= 1)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        else
+        {
+            Toast.makeText(this, "Press the back button once again to close the application.", Toast.LENGTH_SHORT).show();
+            backButtonCount++;
+        }
     }
 
     @Override
