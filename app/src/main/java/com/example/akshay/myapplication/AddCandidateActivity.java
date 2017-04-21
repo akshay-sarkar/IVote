@@ -317,7 +317,7 @@ public class AddCandidateActivity extends AppCompatActivity {
                 }
             }
             return resp;
-        }
+
 
         @Override
         protected void onPostExecute(String result) {
@@ -336,4 +336,5 @@ public class AddCandidateActivity extends AppCompatActivity {
 
 
 
-
+    }
+}
