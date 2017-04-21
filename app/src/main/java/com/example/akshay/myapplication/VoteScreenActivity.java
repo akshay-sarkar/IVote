@@ -31,7 +31,7 @@ public class VoteScreenActivity extends ListActivity {
     ListView list;
     Button btnCastVote;
     ProgressDialog progressDialog;
-    String utaID = "1234567940";
+    String utaID = ConfigurationFile.student_UTA_ID;
     private final String base_url = ConfigurationFile.base_url;
     HttpURLConnection connection;
 

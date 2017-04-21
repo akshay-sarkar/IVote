@@ -67,4 +67,14 @@
             android:onClick="cont"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textViewAlreadyVoted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        android:text="You have Already Voted for Runnig Poll.\n Thank You!!"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

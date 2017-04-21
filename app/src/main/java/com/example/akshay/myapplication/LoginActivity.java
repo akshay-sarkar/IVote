@@ -134,17 +134,19 @@ public class LoginActivity extends AppCompatActivity {
                 String[] str =  resp.split(ConfigurationFile.columentSeperator);
                 ConfigurationFile.pollId = Integer.parseInt(str[1]);
                 ConfigurationFile.pollName = str[2];
+                ConfigurationFile.student_UTA_ID = str[3];
                 Intent intent = new Intent(context, SurveyActivity.class);
                 startActivity(intent);
-                Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
             } else if (resp.contains("ResultPoll")) {
                 // Move to other page
                 String[] str =  resp.split(ConfigurationFile.columentSeperator);
                 ConfigurationFile.pollId = Integer.parseInt(str[1]);
                 ConfigurationFile.pollName = str[2];
+                ConfigurationFile.student_UTA_ID = str[3];
                 Intent intent = new Intent(context, ViewResultActivity.class);
                 startActivity(intent);
-                Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
             }
             /* Only to be allowed at success case */
             //Intent intent = new Intent(context, PollManagementActivity.class);

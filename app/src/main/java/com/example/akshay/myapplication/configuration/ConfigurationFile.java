@@ -11,4 +11,5 @@ public final class ConfigurationFile {
     public static final String columentSeperator = "@&@";
     public static int pollId = -1;
     public static String pollName = null;
+    public static String student_UTA_ID = null;
 }
