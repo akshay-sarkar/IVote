@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="TextView f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:id="@+id/txtFname" />
+
+    <TextView
+        android:text="TextViewl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtFname"
+        android:layout_alignEnd="@+id/txtFname"
+        android:layout_marginTop="15dp"
+        android:id="@+id/txtLname" />
+
+    <TextView
+        android:text="TextViewe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLname"
+        android:layout_alignStart="@+id/txtLname"
+        android:layout_marginTop="16dp"
+        android:id="@+id/txtEmail" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete_black_48dp"
+        android:layout_above="@+id/txtEmail"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"
+        android:id="@+id/imageViewDelete" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_public_black_48dp"
+        android:layout_alignTop="@+id/imageViewDelete"
+        android:layout_toStartOf="@+id/imageViewDelete"
+        android:layout_marginEnd="33dp"
+        android:id="@+id/imageViewNotification" />
+</RelativeLayout>

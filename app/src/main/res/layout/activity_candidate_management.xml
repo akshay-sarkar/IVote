@@ -4,10 +4,49 @@
     android:id="@+id/activity_candidate_management"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.akshay.myapplication.CandidateManagementActivity">
+    tools:context="com.example.akshay.myapplication.CandidateManagementActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/mainText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Candidate Management Screen"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textAlignment="center" />
+
+    <TextView android:id="@+id/Pollname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Poll Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/mainText"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mainText"
+        android:fillViewport="true">
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_black_48dp"
+        fabSize="normal"
+        android:id="@+id/floatingButtonAddPollScreen"/>
 
 </RelativeLayout>

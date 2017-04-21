@@ -47,6 +47,7 @@
         <activity android:name=".VoteAcknowledgementActivity" />
         <activity android:name=".messagingService.EditCandidateActivity" />
         <activity android:name=".EditCandidateActivity"></activity>
+        <activity android:name=".CandidateManagementActivity" />
     </application>
 
 </manifest>
