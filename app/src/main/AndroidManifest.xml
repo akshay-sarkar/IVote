@@ -44,7 +44,9 @@
         <activity android:name=".SurveyActivity" />
         <activity android:name=".SurveyQuestionsActivity" />
         <activity android:name=".AddCandidateActivity" />
-        <activity android:name=".VoteAcknowledgementActivity"></activity>
+        <activity android:name=".VoteAcknowledgementActivity" />
+        <activity android:name=".messagingService.EditCandidateActivity" />
+        <activity android:name=".EditCandidateActivity"></activity>
     </application>
 
 </manifest>

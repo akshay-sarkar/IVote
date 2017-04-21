@@ -26,7 +26,7 @@ import java.util.List;
 
 import static com.example.akshay.myapplication.configuration.ConfigurationFile.base_url;
 
-public class AddCandidateActivity extends AppCompatActivity {
+public class EditCandidateActivity extends AppCompatActivity {
     Spinner spinner1,spinner2;
     HttpURLConnection connection;
     String communityHour, department,Gender;
@@ -34,7 +34,7 @@ public class AddCandidateActivity extends AppCompatActivity {
     public android.widget.EditText FirstName;
     public android.widget.EditText LastName;
     public android.widget.EditText Emailid;
-    Button add;
+    Button edit;
     ArrayList<String> list ;
     CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10,chk11,chk12,chk13,chk14,chk15;
 
@@ -68,7 +68,7 @@ public class AddCandidateActivity extends AppCompatActivity {
 
 
 
-        add=(Button) findViewById(R.id.add);
+        edit=(Button) findViewById(R.id.add);
         this.add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
@@ -81,9 +81,9 @@ public class AddCandidateActivity extends AppCompatActivity {
                             + "&Gender" + Gender
                             + "&Department" + spinner1.getSelectedItem().toString()
                             + "&Community_service_hours" + spinner2.getSelectedItem().toString()
-                              ;
+                            ;
                     //Async Runner
-                    }else{
+                }else{
                     Toast.makeText(context, "Please fill all the details!!", Toast.LENGTH_LONG).show();
                 }
             }
@@ -101,11 +101,11 @@ public class AddCandidateActivity extends AppCompatActivity {
             case R.id.Male:
                 if (checked)
                     Gender="Male";
-                    break;
+                break;
             case R.id.Female:
                 if (checked)
                     Gender="Female";
-                    break;
+                break;
         }
     }
     public void onCheckboxClicked(View view) {
@@ -319,21 +319,22 @@ public class AddCandidateActivity extends AppCompatActivity {
             return resp;
 
 
-        @Override
-        protected void onPostExecute(String result) {
+            @Override
+            protected void onPostExecute(String result) {
 
-            if (resp.equals("Not Created")) {
-                Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
-            } else if (resp.equals("Created")) {
-                Toast.makeText(AddCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
+                if (resp.equals("Not Created")) {
+                    Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
+                } else if (resp.equals("Created")) {
+                    Toast.makeText(EditCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
+                }
+
             }
-
         }
+
+
     }
+
 
 
 }
 
-
-
-    }

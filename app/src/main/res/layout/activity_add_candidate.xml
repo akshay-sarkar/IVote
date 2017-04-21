@@ -373,9 +373,9 @@
 
         </TableLayout>
         <Button
-            android:id="@+id/add"
+            android:id="@+id/edit"
 
-            android:text="ADD"
+            android:text="EDIT"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
