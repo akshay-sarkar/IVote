@@ -86,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
                     responseString = new StringBuffer();
                     while ((inputLine = in.readLine()) != null) {
                         responseString.append(inputLine);
-                        System.out.println("hey there!");
                     }
                     in.close();
                 }
@@ -109,15 +108,26 @@ public class LoginActivity extends AppCompatActivity {
             // execution of result of Long time consuming operation
             progressDialog.dismiss();
 
-            if (resp.equalsIgnoreCase("Unsuccessfull")) {
+            if (resp.equalsIgnoreCase("No Login")) {
                 Toast.makeText(context, "Login Unsuccessfull!!", Toast.LENGTH_LONG).show();
-            } else if (resp.equalsIgnoreCase("Successfull")) {
+            } else if(resp.equalsIgnoreCase("Admin")){
+                Intent intent = new Intent(context, PollManagementActivity.class);
+                startActivity(intent);
+            } else if (resp.contains("ActivePoll")) {
+                String[] str =  resp.split(ConfigurationFile.columentSeperator);
+                ConfigurationFile.pollId = Integer.parseInt(str[1]);
+                ConfigurationFile.pollName = str[2];
                 Intent intent = new Intent(context, SurveyActivity.class);
                 startActivity(intent);
                 Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
-            }else if(resp.equalsIgnoreCase("Admin")){
-                Intent intent = new Intent(context, PollManagementActivity.class);
+            } else if (resp.contains("ResultPoll")) {
+                // Move to other page
+                String[] str =  resp.split(ConfigurationFile.columentSeperator);
+                ConfigurationFile.pollId = Integer.parseInt(str[1]);
+                ConfigurationFile.pollName = str[2];
+                Intent intent = new Intent(context, ViewResultActivity.class);
                 startActivity(intent);
+                Toast.makeText(context, "Login Successfull", Toast.LENGTH_LONG).show();
             }
             /* Only to be allowed at success case */
             //Intent intent = new Intent(context, PollManagementActivity.class);

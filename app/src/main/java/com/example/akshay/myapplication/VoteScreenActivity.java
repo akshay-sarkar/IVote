@@ -31,7 +31,7 @@ public class VoteScreenActivity extends ListActivity {
     ListView list;
     Button btnCastVote;
     ProgressDialog progressDialog;
-    String utaID = "1001506793";
+    String utaID = "1234567940";
     private final String base_url = ConfigurationFile.base_url;
     HttpURLConnection connection;
 
@@ -116,11 +116,11 @@ public class VoteScreenActivity extends ListActivity {
             // execution of result of Long time consuming operation
             //progressDialog.dismiss();
 
-            if (resp.equalsIgnoreCase("Voted")) {
+            if (resp.equalsIgnoreCase("Vote Casted")) {
                 Intent intent = new Intent(context, VoteAcknowledgementActivity.class);
                 startActivity(intent);
 
-            } else if (resp.equalsIgnoreCase("unsuccessfull")) {
+            } else if (resp.equalsIgnoreCase("UnSuccessfull")) {
                 Toast.makeText(context, "Unable to Cast Vote", Toast.LENGTH_LONG).show();
             }
         }
