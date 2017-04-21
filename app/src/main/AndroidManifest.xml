@@ -43,7 +43,8 @@
         <activity android:name=".ViewResultActivity" />
         <activity android:name=".SurveyActivity" />
         <activity android:name=".SurveyQuestionsActivity" />
-        <activity android:name=".AddCandidateActivity"></activity>
+        <activity android:name=".AddCandidateActivity" />
+        <activity android:name=".VoteAcknowledgementActivity"></activity>
     </application>
 
 </manifest>

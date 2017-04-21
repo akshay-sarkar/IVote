@@ -15,8 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.example.akshay.myapplication.AddCandidateActivity;
 import com.example.akshay.myapplication.PollManagementActivity;
 import com.example.akshay.myapplication.R;
+import com.example.akshay.myapplication.VoteScreenActivity;
 import com.example.akshay.myapplication.configuration.ConfigurationFile;
 import com.example.akshay.myapplication.dao.PollEntity;
 
@@ -136,6 +139,8 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(ctx, "Poll Named Clicked - "+ pollObject.getPollId(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ctx, AddCandidateActivity.class);
+                    ctx.startActivity(intent);
                 }
             });
 

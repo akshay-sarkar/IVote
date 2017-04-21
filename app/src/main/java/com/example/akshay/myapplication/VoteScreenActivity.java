@@ -51,17 +51,18 @@ public class VoteScreenActivity extends ListActivity {
         setListAdapter(voteScreenAdapter);
         list = getListView();
         btnCastVote = (Button) findViewById(R.id.castVote);
-        btnCastVote.setEnabled(false);
+        //btnCastVote.setEnabled(false);
         btnCastVote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(VoteScreenAdapter.selectedCandidates.size()<=0){
                     Toast.makeText(context, "Select Candidates to Vote!!",Toast.LENGTH_SHORT).show();
                 }else{
                     //Setting Progress Dialog
-                    progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
+                        //                    progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
                     //Preparing Paramaneters to pass in Async Thread
-                    String url ="/login?utaID="+ utaID + "&candidateIds="+  VoteScreenAdapter.selectedCandidates.toString();
+                    String url ="/castVote?utaID="+ utaID + "&candidateIds="+  VoteScreenAdapter.selectedCandidates.toString();
                     //Async Runner
                     VoteScreenActivity.AsyncTaskRunner runner = new VoteScreenActivity.AsyncTaskRunner();
                     runner.execute(url);
@@ -113,10 +114,12 @@ public class VoteScreenActivity extends ListActivity {
         @Override
         protected void onPostExecute(String result) {
             // execution of result of Long time consuming operation
-            progressDialog.dismiss();
+            //progressDialog.dismiss();
 
             if (resp.equalsIgnoreCase("Voted")) {
-                Toast.makeText(context, "Vote Casted", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, VoteAcknowledgementActivity.class);
+                startActivity(intent);
+
             } else if (resp.equalsIgnoreCase("unsuccessfull")) {
                 Toast.makeText(context, "Unable to Cast Vote", Toast.LENGTH_LONG).show();
             }

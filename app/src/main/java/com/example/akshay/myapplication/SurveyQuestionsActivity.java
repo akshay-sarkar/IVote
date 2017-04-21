@@ -242,7 +242,7 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
 
             //Preparing Parameters to pass in Async Thread
             String url ="/surveyData?studentOrganization="+studentOrganization+ "&communityHour="+communityHour
-                    +"&department="+department+"&qualities="+qualitiesList.toString()+"&interest="+interestList.size() ;
+                    +"&department="+department+"&qualities="+qualitiesList.toString()+"&interest="+interestList.toString() ;
             //Async Runner
             AsyncTaskRunner runner = new AsyncTaskRunner();
             runner.execute(url);

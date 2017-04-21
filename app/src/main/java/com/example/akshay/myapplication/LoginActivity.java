@@ -26,6 +26,10 @@ public class LoginActivity extends AppCompatActivity {
     Context context;
     HttpURLConnection connection;
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

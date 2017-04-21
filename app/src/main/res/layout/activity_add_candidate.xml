@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/FirstName"
+                    android:id="@+id/textViewFirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="First Name" />
@@ -49,7 +49,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/LastName"
+                    android:id="@+id/textViewLastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Last Name" />
@@ -67,7 +67,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/Emailid"
+                    android:id="@+id/textViewEmailid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="UTA Email ID" />

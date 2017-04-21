@@ -278,9 +278,6 @@ public class AddCandidateActivity extends AppCompatActivity {
 
     }
 
-
-    }
-
     /* Thread for Server Interation - Pass paramenter and URL */
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
@@ -288,7 +285,7 @@ public class AddCandidateActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            HttpURLConnection connection;
+
             try {
                 StringBuffer responseString = null;
                 String inputLine;
@@ -322,16 +319,21 @@ public class AddCandidateActivity extends AppCompatActivity {
             return resp;
         }
 
+        @Override
         protected void onPostExecute(String result) {
 
             if (resp.equals("Not Created")) {
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equals("Created")) {
                 Toast.makeText(AddCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
-
             }
 
         }
+    }
+
+
+}
+
 
 
 
