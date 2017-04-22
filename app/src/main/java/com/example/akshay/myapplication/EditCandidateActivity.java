@@ -69,7 +69,7 @@ public class EditCandidateActivity extends AppCompatActivity {
 
 
         edit=(Button) findViewById(R.id.add);
-        this.add.setOnClickListener(new View.OnClickListener() {
+        this.edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
                         && ! Emailid.getText().toString().isEmpty() && communityHour.isEmpty() || department.isEmpty()){
@@ -317,24 +317,18 @@ public class EditCandidateActivity extends AppCompatActivity {
                 }
             }
             return resp;
-
-
-            @Override
-            protected void onPostExecute(String result) {
-
-                if (resp.equals("Not Created")) {
-                    Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
-                } else if (resp.equals("Created")) {
-                    Toast.makeText(EditCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
-                }
-
-            }
         }
 
+        @Override
+        protected void onPostExecute(String result) {
 
-    }
+            if (resp.equals("Not Created")) {
+                Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
+            } else if (resp.equals("Created")) {
+                Toast.makeText(EditCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
+            }
 
-
-
+        }
+        }
 }
 
