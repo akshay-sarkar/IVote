@@ -9,51 +9,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.akshay.myapplication.ViewResultActivity">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingLeft="270dp">
+
         <Button
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:onClick="Logout"
-            android:gravity="right"
-            android:layout_gravity="center"
-            android:layout_weight=".5"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingTop="30dp"
-        >
 
         <TextView
-            android:text="RESULT"
-            android:layout_width="wrap_content"
+            android:text="POLL RESULT"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView22"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="14dp"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:textAppearance="@android:style/TextAppearance"
-            android:id="@+id/winner1"
+            android:layout_below="@+id/logout"
+            android:textSize="24sp"
             android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:id="@+id/winner1"
+            android:textAlignment="center"
             />
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="70dp"
+        android:paddingTop="20dp"
+        android:layout_below="@+id/winner1"
         >
         <TextView
             android:text="THE WINNERS ARE"
@@ -69,17 +53,18 @@
             />
 
         <TextView
-            android:text="ViewResult1"
+            android:text="View Result 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView21"
             android:textAppearance="@android:style/TextAppearance"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_marginTop="14dp"/>
 
         <TextView
-            android:text="ViewResult2"
+            android:text="View Result 2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

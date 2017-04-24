@@ -17,434 +17,414 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.rosha.myapplication6.AddCandidateActivity">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="1dp"
-            android:paddingLeft="270dp">
             <Button
                 android:id="@+id/logout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:onClick="Logout"
-                android:gravity="right"
-                android:layout_gravity="center"
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="45dp"
-            android:gravity="center">
+                android:layout_alignParentRight="true"/>
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="EDIT CANDIDATE"
+                android:layout_below="@+id/logout"
+                android:id="@+id/headingTxt"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"/>
+            <TableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAppearance="@android:style/TextAppearance"
+                android:layout_below="@+id/headingTxt"
+                android:id="@+id/tableLayout"
+                android:layout_marginTop="5dp">
 
-                android:text="EDIT CANDIDATE"
-                android:textSize="20dp"/>
-        </LinearLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="70dp">
-
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentTop="true">
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textViewFirstName"
+                <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                    android:layout_height="wrap_content">
 
-                    android:text="First Name" />
-
-                <EditText
-                    android:id="@+id/FirstName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="First Name"
-                    android:inputType="textPersonName" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewLastName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
-
-                    android:text="Last Name" />
-
-                <EditText
-                    android:id="@+id/LastName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Last Name"
-                    android:inputType="textPersonName" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewEmailid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
-
-                    android:text="UTA Email ID" />
-
-                <EditText
-                    android:id="@+id/Emailid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint=" Email ID"
-                    android:inputType="textPersonName"
-                    android:isScrollContainer="true"
-                    android:keepScreenOn="true"
-                    />
-
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
-
-                    android:layout_height="wrap_content"
-                    android:text="Gender" />
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:text="Male"
+                    <TextView
+                        android:id="@+id/textViewFirstName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/Male"
-                        android:onClick="onRadioButtonClicked"/>
-                    <RadioButton
-                        android:text="Female"
+                        android:textAppearance="@android:style/TextAppearance"
+                        android:text="First Name" />
+
+                    <EditText
+                        android:id="@+id/FirstName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/Female"
-                        android:onClick="onRadioButtonClicked"/>
-                </RadioGroup>
-            </TableRow>
+                        android:hint="First Name"
+                        android:inputType="textPersonName" />
+                </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
-
-                    android:text="Department" />
-                <Spinner
-                    android:id="@+id/spinner1"
+                <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/dept"
-                    android:background="@android:drawable/btn_dropdown" />
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                    android:layout_height="match_parent">
 
-                    android:text="Community Service" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/textViewLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                        android:text="Last Name" />
 
-                    android:text="Hours" />
+                    <EditText
+                        android:id="@+id/LastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Name"
+                        android:inputType="textPersonName" />
+                </TableRow>
 
-                <Spinner
-                    android:id="@+id/spinner2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"
-                    android:clipChildren="true"
-                    android:clipToPadding="true"
-                    android:entries="@array/csh"
-                    android:contextClickable="true" />
-            </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                    <TextView
+                        android:id="@+id/textViewEmailid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                    android:text="Qualities" />
+                        android:text="UTA Email ID" />
 
-                <CheckBox
-                    android:id="@+id/chk1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Honesty"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                    <EditText
+                        android:id="@+id/Emailid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint=" Email ID"
+                        android:inputType="textPersonName"
+                        android:isScrollContainer="true"
+                        android:keepScreenOn="true"
+                        />
 
-                    android:text="" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <CheckBox
-                    android:id="@+id/chk2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Problem Solver"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                        android:layout_height="wrap_content"
+                        android:text="Gender" />
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                <CheckBox
-                    android:id="@+id/chk3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Flexible and High Spirited"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                        <RadioButton
+                            android:text="Male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/Male"
+                            android:onClick="onRadioButtonClicked"/>
+                        <RadioButton
+                            android:text="Female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/Female"
+                            android:onClick="onRadioButtonClicked"/>
+                    </RadioGroup>
+                </TableRow>
 
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                <CheckBox
-                    android:id="@+id/chk4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Team Leader"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                        android:text="Department" />
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/dept"
+                        android:background="@android:drawable/btn_dropdown" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                        android:text="Community Service" />
+                </TableRow>
 
-                <CheckBox
-                    android:id="@+id/chk5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Realastic and Rational"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                    android:layout_height="wrap_content"
-                    android:text="Interest" />
+                        android:text="Hours" />
 
-                <CheckBox
-                    android:id="@+id/chk6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sports"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                    <Spinner
+                        android:id="@+id/spinner2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:spinnerMode="dropdown"
+                        android:clipChildren="true"
+                        android:clipToPadding="true"
+                        android:entries="@array/csh"
+                        android:contextClickable="true" />
+                </TableRow>
 
-                <CheckBox
-                    android:id="@+id/chk7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dance,Drama,Music"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                <CheckBox
-                    android:id="@+id/chk8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Academic"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                        android:text="Qualities" />
 
-                <CheckBox
-                    android:id="@+id/chk9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Social Work"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                    <CheckBox
+                        android:id="@+id/chk1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Honesty"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                <CheckBox
-                    android:id="@+id/chk10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Creative Work and Art"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
+                        android:text="" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance"
+                    <CheckBox
+                        android:id="@+id/chk2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Problem Solver"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                    android:layout_height="wrap_content"
-                    android:text="Student Organization" />
+                        android:layout_height="wrap_content"
+                        android:text="" />
 
-                <CheckBox
-                    android:id="@+id/chk11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Healthcare Community"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                    <CheckBox
+                        android:id="@+id/chk3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flexible and High Spirited"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                <CheckBox
-                    android:id="@+id/chk12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Art History Student Union" />
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                        android:layout_height="wrap_content"
+                        android:text="" />
 
-                <CheckBox
-                    android:id="@+id/chk13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="International Students Org."
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                    <CheckBox
+                        android:id="@+id/chk4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Team Leader"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-                <CheckBox
-                    android:id="@+id/chk14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sports Club"
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+                        android:layout_height="wrap_content"
+                        android:text="" />
 
-                <CheckBox
-                    android:id="@+id/chk15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Engineering Students Org."
-                    android:onClick="onCheckboxClicked"/>
-            </TableRow>
+                    <CheckBox
+                        android:id="@+id/chk5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Realastic and Rational"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
 
-        </TableLayout>
- </RelativeLayout>
-        <Button
-            android:id="@+id/edit"
-            android:text="EDIT"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            style="@style/Widget.AppCompat.Button.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="770dp" />
+                        android:layout_height="wrap_content"
+                        android:text="Interest" />
+
+                    <CheckBox
+                        android:id="@+id/chk6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sports"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dance,Drama,Music"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Academic"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Social Work"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Creative Work and Art"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance"
+
+                        android:layout_height="wrap_content"
+                        android:text="Student Organization" />
+
+                    <CheckBox
+                        android:id="@+id/chk11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Healthcare Community"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Art History Student Union" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="International Students Org."
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sports Club"
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <CheckBox
+                        android:id="@+id/chk15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Engineering Students Org."
+                        android:onClick="onCheckboxClicked"/>
+                </TableRow>
+
+            </TableLayout>
+            <Button
+                android:id="@+id/edit"
+                android:text="Edit Candidate"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tableLayout"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"/>
     </RelativeLayout>
 </ScrollView>
 

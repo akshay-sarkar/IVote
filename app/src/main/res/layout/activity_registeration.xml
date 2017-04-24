@@ -13,8 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/tableLayout"
         android:layout_centerHorizontal="true"
-        android:textAppearance="@android:style/TextAppearance"
-
         android:layout_marginBottom="43dp"
         android:text="Registeration Screen"
         android:textSize="24sp"

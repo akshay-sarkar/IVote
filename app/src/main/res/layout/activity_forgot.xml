@@ -33,8 +33,6 @@
         android:layout_marginRight="26dp"
         android:layout_marginTop="33dp"
         android:text="Forgot Password"
-        android:textAppearance="@android:style/TextAppearance"
-
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"

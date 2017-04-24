@@ -4,14 +4,14 @@
     android:id="@+id/activity_candidate_management"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.akshay.myapplication.CandidateManagementActivity"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.akshay.myapplication.CandidateManagementActivity">
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:fillViewport="true">
-  <LinearLayout
+    <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical">
@@ -19,135 +19,127 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="280dp"
         android:paddingTop="10dp"
-        android:paddingLeft="280dp">
+        android:id="@+id/ll1">
         <Button
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
             android:onClick="Logout"
-            android:gravity="right"
-            android:layout_gravity="center"
-            android:layout_weight=".5"
-            />
-</LinearLayout>
-        <LinearLayout
-        android:layout_width="388dp"
+            android:text="Logout"/>
+    </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1"
-            android:gravity="center">
+        android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance"
-
             android:text="THE STUDENT SURVEY"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:paddingTop="1dp"
             />
-
-
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight=".4">
+        android:layout_weight=".4"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance"
-
             android:text="@string/one"
+
+            android:textAppearance="@android:style/TextAppearance"
             />
         <CheckBox
             android:id="@+id/chk1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Honesty"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Honesty"/>
         <CheckBox
             android:id="@+id/chk2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Problem solving skills"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Problem solving skills"/>
         <CheckBox
             android:id="@+id/chk3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Flexible and high spirited"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Flexible and high spirited"/>
         <CheckBox
             android:id="@+id/chk4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Team leader"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Team leader"/>
         <CheckBox
             android:id="@+id/chk5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Realistic and Rational"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Realistic and Rational"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight=".4">
+        android:layout_weight=".4"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance"
-
             android:text="@string/two"
+
+            android:textAppearance="@android:style/TextAppearance"
             />
         <CheckBox
             android:id="@+id/chk6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sports"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Sports"/>
         <CheckBox
             android:id="@+id/chk7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dance Drama Music"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Dance Drama Music"/>
         <CheckBox
             android:id="@+id/chk8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Academics"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Academics"/>
         <CheckBox
             android:id="@+id/chk9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Social Work"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Social Work"/>
         <CheckBox
             android:id="@+id/chk10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Creative work and Art"
-            android:onClick="onCheckboxClicked"/>
+            android:onClick="onCheckboxClicked"
+            android:text="Creative work and Art"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight=".4">
+        android:layout_weight=".4"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance"
-
             android:text="@string/three"
+
+            android:textAppearance="@android:style/TextAppearance"
             />
         <Spinner
             android:id="@+id/sp1"
@@ -160,14 +152,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight=".3">
+        android:layout_weight=".3"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance"
-
             android:text="@string/four"
+
+            android:textAppearance="@android:style/TextAppearance"
             />
         <Spinner
             android:id="@+id/sp2"
@@ -180,14 +172,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight=".3">
+        android:layout_weight=".3"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance"
-
             android:text="@string/five"
+
+            android:textAppearance="@android:style/TextAppearance"
             />
         <Spinner
             android:id="@+id/sp3"
@@ -200,14 +192,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:layout_weight=".3">
+        android:layout_weight=".3"
+        android:gravity="right">
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="Submit"
             android:text="SUBMIT"
-            android:onClick="Submit"/>
+            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
     </LinearLayout>
   </LinearLayout>
 </ScrollView>
