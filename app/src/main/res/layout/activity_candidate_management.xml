@@ -5,35 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.akshay.myapplication.CandidateManagementActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="280dp">
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:onClick="Logout"
+            android:gravity="right"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            />
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/mainText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance"
         android:text="Candidate Management Screen"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_margin="10dp"
         android:textAlignment="center" />
+        <TextView android:id="@+id/Pollname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Poll Name"
+            android:textSize="18sp"
+            android:textAppearance="@android:style/TextAppearance"
 
-    <TextView android:id="@+id/Pollname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Poll Name"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@id/mainText"/>
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
+            android:layout_below="@id/mainText"/>
+    </LinearLayout>
+
+
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@id/mainText"
         android:fillViewport="true">
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:paddingTop="100dp"
+            >
         </ListView>
     </ScrollView>
 

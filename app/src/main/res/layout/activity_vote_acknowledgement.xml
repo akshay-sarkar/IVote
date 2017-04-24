@@ -14,6 +14,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
         android:text="Vote Acknowledgment Screen"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -21,6 +23,8 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:layout_below="@+id/textView26"
         android:layout_margin="50dp"
         android:text="Thank you for casting your vote. \n\nYou will be notified of the results as soon as they are available." />

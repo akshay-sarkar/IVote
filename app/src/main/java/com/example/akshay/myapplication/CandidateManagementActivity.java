@@ -155,4 +155,9 @@ public class CandidateManagementActivity extends ListActivity {
             }
         }
     }
+    public void Logout(View view){
+
+        Intent i=new Intent(this,LoginActivity.class);
+        startActivity(i);
+    }
 }

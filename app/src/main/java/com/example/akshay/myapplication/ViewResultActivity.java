@@ -1,8 +1,10 @@
 package com.example.akshay.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,5 +90,10 @@ public class ViewResultActivity extends AppCompatActivity {
             //Intent intent = new Intent(context, PollManagementActivity.class);
             //startActivity(intent);
         }
+    }
+    public void Logout(View view){
+
+        Intent i=new Intent(this,LoginActivity.class);
+        startActivity(i);
     }
     }

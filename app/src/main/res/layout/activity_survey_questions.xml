@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_candidate_management"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:id="@+id/sq1">
+    tools:context="com.example.akshay.myapplication.CandidateManagementActivity"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="280dp">
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:onClick="Logout"
+            android:gravity="right"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            />
+</LinearLayout>
+        <LinearLayout
         android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:weightSum="1">
+        android:weightSum="1"
+            android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="THE STUDENT SURVEY"
+            android:textAppearance="@android:style/TextAppearance"
 
+            android:text="THE STUDENT SURVEY"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingTop="1dp"
             />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="0.82">
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout"
-                android:onClick="Logout"
-                />
-        </LinearLayout>
+
 
     </LinearLayout>
     <LinearLayout
@@ -37,6 +58,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance"
+
             android:text="@string/one"
             />
         <CheckBox
@@ -78,6 +101,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance"
+
             android:text="@string/two"
             />
         <CheckBox
@@ -120,6 +145,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance"
+
             android:text="@string/three"
             />
         <Spinner
@@ -134,10 +161,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight=".4">
+        android:layout_weight=".3">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance"
+
             android:text="@string/four"
             />
         <Spinner
@@ -152,10 +181,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight=".4">
+        android:layout_weight=".3">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance"
+
             android:text="@string/five"
             />
         <Spinner
@@ -170,7 +201,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_weight=".4">
+        android:layout_weight=".3">
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
@@ -178,4 +209,6 @@
             android:text="SUBMIT"
             android:onClick="Submit"/>
     </LinearLayout>
-</LinearLayout>
+  </LinearLayout>
+</ScrollView>
+</RelativeLayout>

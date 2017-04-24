@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:layout_marginStart="10dp"
         android:layout_marginTop="32dp"
         android:id="@+id/txtFname" />
@@ -21,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtFname"
         android:layout_alignEnd="@+id/txtFname"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:layout_marginTop="15dp"
         android:id="@+id/txtLname" />
 
@@ -31,6 +35,8 @@
         android:layout_below="@+id/txtLname"
         android:layout_alignStart="@+id/txtLname"
         android:layout_marginTop="16dp"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:id="@+id/txtEmail" />
 
     <ImageView

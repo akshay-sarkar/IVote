@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.akshay.myapplication.VoteScreenActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:paddingLeft="280dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp">
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textAlignment="center"
+            android:onClick="Logout"
+            android:gravity="right"
+            android:layout_centerHorizontal="true"
+            android:layout_weight=".5"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:paddingTop="30dp"
+            android:textAppearance="@android:style/TextAppearance"
+            android:text="CANDIDATE SELECTION"
+            android:textSize="20dp"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="55dp">
 
     <TextView
         android:id="@+id/textView19"
@@ -12,6 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:text="UTA Ambassador List"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -21,7 +68,7 @@
 
     <ListView
         android:id="@android:id/list"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="415dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -35,9 +82,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="52dp"
-        android:layout_marginTop="10dp"
         android:text="Cast Vote"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@android:id/list" />
-
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginEnd="52dp"
+        tools:layout_editor_absoluteY="471dp" />
+</LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -113,4 +113,10 @@ public class AddPollActivity extends AppCompatActivity {
             }
         }
     }
+    public void Logout(View view){
+
+        Intent i=new Intent(this,LoginActivity.class);
+        startActivity(i);
+    }
+
 }

@@ -8,30 +8,58 @@
     android:id="@+id/activity_assignment__screen">
 
 
-    <TextView
-        android:id="@+id/mainText"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Poll Management Screen"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:textAlignment="center"
-        />
+        android:paddingTop="10dp"
+        android:paddingLeft="280dp">
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:onClick="Logout"
+            android:gravity="right"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Poll Management Screen"
+            android:textAppearance="@android:style/TextAppearance"
+
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
 
     <TextView android:id="@android:id/empty"
         android:layout_width="match_parent"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:layout_height="match_parent"
-        android:background="#FF0000"
-        android:text="No data"/>
+        android:text=""/>
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@id/mainText"
         android:fillViewport="true">
         <ListView
             android:id="@android:id/list"
+            android:paddingTop="70dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>

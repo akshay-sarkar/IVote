@@ -1,84 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.example.akshay.myapplication.AddPollActivity">
-
-
-    <TextView
-        android:id="@+id/textView8"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Poll"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp" />
+        android:paddingTop="10dp"
+        android:paddingLeft="280dp">
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:onClick="Logout"
+            android:gravity="right"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance"
+            android:text="ADD POLL"
+            android:textSize="20dp"/>
+    </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
         android:text="Poll Name"
+        android:textAppearance="@android:style/TextAppearance"
         android:textSize="18sp"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/textView8"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="89dp" />
+       />
+       <EditText
+           android:id="@+id/editTextPollName"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBaseline="@+id/textView9"
+           android:layout_alignBottom="@+id/textView9"
+           android:layout_alignParentEnd="true"
+           android:ems="10"
+           android:hint="Poll Name"
+           android:layout_marginLeft="55dp"
+           android:inputType="textPersonName" />
+   </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Poll Start Date"
-        android:textSize="18sp"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/editTextPollName"
-        android:layout_alignStart="@+id/textView9" />
+    <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <TextView
+               android:id="@+id/textView10"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Poll Start Date"
+               android:textSize="18sp"
+               android:paddingLeft="5dp"
+               android:layout_below="@+id/editTextPollName"
+               android:textAppearance="@android:style/TextAppearance"
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Poll End Date"
-        android:textSize="18sp"
-        android:layout_below="@+id/editTextPollStartDate"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_marginTop="52dp" />
+               android:layout_alignStart="@+id/textView9" />
+           <EditText
+               android:id="@+id/editTextPollStartDate"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignBottom="@+id/textView10"
+               android:layout_alignParentEnd="true"
+               android:ems="10"
+               android:layout_marginLeft="20dp"
+               android:hint="MM/DD/YYYY"
+               android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextPollName"
-        android:layout_width="wrap_content"
+       </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView9"
-        android:layout_alignBottom="@+id/textView9"
-        android:layout_alignParentEnd="true"
-        android:ems="10"
-        android:hint="Poll Name"
-        android:inputType="textPersonName" />
+        >
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poll End Date"
+            android:textSize="18sp"
+            android:textAppearance="@android:style/TextAppearance"
 
-    <EditText
-        android:id="@+id/editTextPollStartDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView10"
-        android:layout_alignParentEnd="true"
-        android:ems="10"
-        android:hint="MM/DD/YYYY"
-        android:inputType="text" />
+            android:paddingLeft="5dp"
 
-    <EditText
-        android:id="@+id/editTextPollEndDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="MM/DD/YYYY"
-        android:inputType="text"
-        android:layout_alignBottom="@+id/textView11"
-        android:layout_alignParentEnd="true" />
+            android:layout_below="@+id/editTextPollStartDate"
+            android:layout_alignStart="@+id/textView10"
+             />
+
+
+
+
+
+        <EditText
+            android:id="@+id/editTextPollEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginLeft="30dp"
+            android:hint="MM/DD/YYYY"
+            android:inputType="text"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_alignParentEnd="true" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonAddPoll"
@@ -90,4 +136,4 @@
         android:layout_marginTop="45dp"
         android:text="Add" />
 
-</RelativeLayout>
+</LinearLayout>

@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/tableLayout"
         android:layout_centerHorizontal="true"
+        android:textAppearance="@android:style/TextAppearance"
+
         android:layout_marginBottom="43dp"
         android:text="Registeration Screen"
         android:textSize="24sp"
@@ -39,6 +41,8 @@
                 android:layout_height="wrap_content"
                 android:text="First Name"
                 android:textAlignment="center"
+                android:textAppearance="@android:style/TextAppearance"
+
                 android:textSize="18sp" />
 
             <EditText
@@ -60,6 +64,8 @@
                 android:layout_height="wrap_content"
                 android:text="Last Name"
                 android:textAlignment="center"
+                android:textAppearance="@android:style/TextAppearance"
+
                 android:textSize="18sp" />
 
             <EditText
@@ -80,6 +86,8 @@
                 android:layout_height="wrap_content"
                 android:text="Email ld"
                 android:textAlignment="center"
+                android:textAppearance="@android:style/TextAppearance"
+
                 android:textSize="18sp" />
 
             <EditText
@@ -101,6 +109,8 @@
                 android:layout_height="wrap_content"
                 android:text="UTA ID"
                 android:textAlignment="center"
+                android:textAppearance="@android:style/TextAppearance"
+
                 android:textSize="18sp" />
 
             <EditText
@@ -121,6 +131,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phone"
+                android:textAppearance="@android:style/TextAppearance"
+
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
@@ -142,6 +154,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
+                android:textAppearance="@android:style/TextAppearance"
+
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
