@@ -138,7 +138,6 @@ public class VoteScreenActivity extends ListActivity {
         protected void onPostExecute(String result) {
             // execution of result of Long time consuming operation
             //progressDialog.dismiss();
-
             if (resp.equalsIgnoreCase("Vote Casted")) {
                 Intent intent = new Intent(context, VoteAcknowledgementActivity.class);
                 startActivity(intent);

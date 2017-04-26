@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.akshay.myapplication.adapter.CandidateAdapter;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 
 public class CandidateManagementActivity extends ListActivity {
 
-    ArrayList<CandidateEntity> pollObjects;
+    ArrayList<CandidateEntity> candidateObjects;
     Context ctx;
     ListView list;
     // numberOfPollActive should not be greater than 1.
@@ -37,14 +38,14 @@ public class CandidateManagementActivity extends ListActivity {
     private final String base_url = ConfigurationFile.base_url;
     String lineSeperator="#&#";
     String columentSeperator = "@&@";
+    int pollID;
+    String pollName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ctx = getApplicationContext();
         setContentView(R.layout.activity_candidate_management);
-        // FIREBASE TOKEN Collector - Update this token
-        //System.out.println("TOKEN : "+ FirebaseInstanceId.getInstance().getToken());
+        ctx  = getApplicationContext();
 
         FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.floatingButtonAddPollScreen);
         myFab.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +55,14 @@ public class CandidateManagementActivity extends ListActivity {
             }
         });
 
+        pollID = getIntent().getExtras().getInt("DATA");
+        pollName = getIntent().getExtras().getString("POLL_NAME");
+
+        TextView pollN = (TextView) findViewById(R.id.Pollname);
+        pollN.setText("Poll Name : "+pollName);
+
         //Preparing Paramaneters to pass in Async Thread
-        String url ="/displayCandidate";
+        String url ="/displayCandidate?pollID="+pollID;
         //Async Runner
         CandidateManagementActivity.AsyncTaskRunner runner = new CandidateManagementActivity.AsyncTaskRunner();
         runner.execute(url);
@@ -66,7 +73,7 @@ public class CandidateManagementActivity extends ListActivity {
     protected void onResume() {
         super.onResume();
         //Preparing Paramaneters to pass in Async Thread
-        String url ="/displayCandidate";
+        String url ="/displayCandidate?pollID="+pollID;
         //Async Runner
 
         CandidateManagementActivity.AsyncTaskRunner runner = new CandidateManagementActivity.AsyncTaskRunner();
@@ -126,28 +133,22 @@ public class CandidateManagementActivity extends ListActivity {
             if (resp.trim().isEmpty()) {
                 Toast.makeText(ctx, "Not Record Found!!", Toast.LENGTH_LONG).show();
             } else if (!resp.trim().isEmpty()) {
-                pollObjects = new ArrayList<>();
-//                pollObjects.add(new PollEntity("UTA Ambassador President", "Start Date: 02/04/2017", "End Date: 02/06/2017" ));
-//                pollObjects.add(new PollEntity("UTA Mascot Men", "Start Date: "+"02/07/2017", "End Date: "+"02/09/2017" ));
-//                pollObjects.add(new PollEntity("UTA Mascot Women", "Start Date: "+"02/11/2017", "End Date: "+"02/13/2017" ));
-//                pollObjects.add(new PollEntity("UTA CS Nerd", "Start Date: "+"02/17/2017", "End Date: "+"02/19/2017" ));
-//                pollObjects.add(new PollEntity("UTA Ambassador VC", "Start Date: "+"02/21/2017", "End Date: "+"02/23/2017" ));
+                candidateObjects = new ArrayList<>();
+                String responseCandidate[] = resp.split(ConfigurationFile.lineSeperator);
+                for(int i = 0; i< responseCandidate.length; i++){
+                    String[] individualCandidateColumns = responseCandidate[i].split(columentSeperator);
+                    candidateObjects.add(new CandidateEntity(Integer.parseInt(individualCandidateColumns[0]),
+                            individualCandidateColumns[1],individualCandidateColumns[2], individualCandidateColumns[3],
+                            individualCandidateColumns[4], individualCandidateColumns[5], individualCandidateColumns[6],
+                            individualCandidateColumns[7],  individualCandidateColumns[8]
+                            , individualCandidateColumns[9] , individualCandidateColumns[10]));
+                }
+//                candidateObjects.add(new CandidateEntity(1, "akshay","sarkar", "aa@a.c","12.12.12", "Male", "CSE", "captain",
+//                        "tech", "NA","4"));
+//                candidateObjects.add(new CandidateEntity(2, "shayam","gopal", "xyz@a.c","12.12.12", "Male", "CSE", "captain",
+//                        "tech", "NA","4"));
 
-                //Log.d("POLLS ", resp);
-                /*String[] responsePolls = resp.split(lineSeperator);
-                for(int i = 0; i< responsePolls.length; i++){
-                    Log.d("POLLS "+i, responsePolls[i]);
-                    String[] individualPollColumns = responsePolls[i].split(columentSeperator);
-                    pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
-                }*/
-
-                pollObjects.add(new CandidateEntity(1, "akshay","sarkar", "aa@a.c","12.12.12", "Male", "CSE", "captain",
-                        "tech", "NA","4"));
-                pollObjects.add(new CandidateEntity(2, "shayam","gopal", "xyz@a.c","12.12.12", "Male", "CSE", "captain",
-                        "tech", "NA","4"));
-
-               // CandidateAdapter pollAdapter = new CandidateAdapter()
-                CandidateAdapter pollAdapter = new CandidateAdapter(ctx, R.layout.activity_candidateview, pollObjects);
+                CandidateAdapter pollAdapter = new CandidateAdapter(ctx, R.layout.activity_candidateview, candidateObjects);
                 pollAdapter.setNotifyOnChange(true);
                 setListAdapter(pollAdapter);
                 list = getListView();

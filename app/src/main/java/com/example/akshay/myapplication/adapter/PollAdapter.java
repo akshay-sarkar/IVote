@@ -17,6 +17,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.akshay.myapplication.AddCandidateActivity;
+import com.example.akshay.myapplication.CandidateManagementActivity;
 import com.example.akshay.myapplication.PollManagementActivity;
 import com.example.akshay.myapplication.R;
 import com.example.akshay.myapplication.VoteScreenActivity;
@@ -139,7 +140,9 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(ctx, "Poll Named Clicked - "+ pollObject.getPollId(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ctx, AddCandidateActivity.class);
+                    Intent intent = new Intent(ctx, CandidateManagementActivity.class);
+                    intent.putExtra("DATA", pollObject.getPollId());
+                    intent.putExtra("POLL_NAME", pollObject.getPollName());
                     ctx.startActivity(intent);
                 }
             });
