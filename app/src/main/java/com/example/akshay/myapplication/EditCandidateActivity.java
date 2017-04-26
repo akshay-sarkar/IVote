@@ -42,7 +42,7 @@ public class EditCandidateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_candidate);
+        setContentView(R.layout.activity_edit_candidate);
         context = this;
         addItemsOnSpinner1();
         addItemsOnSpinner2();
@@ -69,7 +69,7 @@ public class EditCandidateActivity extends AppCompatActivity {
 
 
 
-        edit=(Button) findViewById(R.id.add);
+        edit=(Button) findViewById(R.id.edit);
         this.edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
@@ -116,99 +116,99 @@ public class EditCandidateActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.chk1:
                 if (checked)
-                    list.add(chk1.getTag().toString());
+                    list.add(chk1.getText().toString());
                 else
-                    list.remove(chk1.getTag().toString());
+                    list.remove(chk1.getText().toString());
 
 
                 break;
             case R.id.chk2:
                 if (checked)
-                    list.add(chk2.getTag().toString());
+                    list.add(chk2.getText().toString());
                 else
-                    list.remove(chk2.getTag().toString());
+                    list.remove(chk2.getText().toString());
 
                 break;
 
             case R.id.chk3:
                 if (checked)
-                    list.add(chk3.getTag().toString());
-                else list.remove(chk3.getTag().toString());
+                    list.add(chk3.getText().toString());
+                else list.remove(chk3.getText().toString());
 
                 break;
             case R.id.chk4:
                 if (checked)
-                    list.add(chk4.getTag().toString());
-                else list.remove(chk4.getTag().toString());
+                    list.add(chk4.getText().toString());
+                else list.remove(chk4.getText().toString());
 
                 break;
             case R.id.chk5:
                 if (checked)
-                    list.add(chk5.getTag().toString());
-                else list.remove(chk5.getTag().toString());
+                    list.add(chk5.getText().toString());
+                else list.remove(chk5.getText().toString());
 
                 break;
             case R.id.chk6:
                 if (checked)
 
-                    list.add(chk6.getTag().toString());
-                else list.remove(chk6.getTag().toString());
+                    list.add(chk6.getText().toString());
+                else list.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk7:
 
                 if (checked)
-                    list.add(chk7.getTag().toString());
-                else list.remove(chk7.getTag().toString());
+                    list.add(chk7.getText().toString());
+                else list.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk8:
                 if (checked)
-                    list.add(chk8.getTag().toString());
-                else list.remove(chk8.getTag().toString());
+                    list.add(chk8.getText().toString());
+                else list.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk9:
                 if (checked)
-                    list.add(chk9.getTag().toString());
-                else list.remove(chk9.getTag().toString());
+                    list.add(chk9.getText().toString());
+                else list.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk10:
                 if (checked)
-                    list.add(chk10.getTag().toString());
-                else list.remove(chk10.getTag().toString());
+                    list.add(chk10.getText().toString());
+                else list.remove(chk10.getText().toString());
 
             case R.id.chk11:
                 if (checked)
 
-                    list.add(chk6.getTag().toString());
-                else list.remove(chk6.getTag().toString());
+                    list.add(chk6.getText().toString());
+                else list.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk12:
 
                 if (checked)
-                    list.add(chk7.getTag().toString());
-                else list.remove(chk7.getTag().toString());
+                    list.add(chk7.getText().toString());
+                else list.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk13:
                 if (checked)
-                    list.add(chk8.getTag().toString());
-                else list.remove(chk8.getTag().toString());
+                    list.add(chk8.getText().toString());
+                else list.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk14:
                 if (checked)
-                    list.add(chk9.getTag().toString());
-                else list.remove(chk9.getTag().toString());
+                    list.add(chk9.getText().toString());
+                else list.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk15:
                 if (checked)
-                    list.add(chk10.getTag().toString());
-                else list.remove(chk10.getTag().toString());
+                    list.add(chk10.getText().toString());
+                else list.remove(chk10.getText().toString());
 
                 break;
 
@@ -249,9 +249,6 @@ public class EditCandidateActivity extends AppCompatActivity {
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
-
-
-
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,

@@ -39,7 +39,7 @@ public class CandidateManagementActivity extends ListActivity {
     String lineSeperator="#&#";
     String columentSeperator = "@&@";
     int pollID;
-    String pollName = "";
+    String intentPollName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +56,11 @@ public class CandidateManagementActivity extends ListActivity {
         });
 
         pollID = getIntent().getExtras().getInt("DATA");
-        pollName = getIntent().getExtras().getString("POLL_NAME");
+        intentPollName = getIntent().getExtras().getString("POLL_NAME");
 
-        TextView pollN = (TextView) findViewById(R.id.Pollname);
-        pollN.setText("Poll Name : "+pollName);
+        TextView textPollName = (TextView) findViewById(R.id.Pollname);
+        String pollName = "Poll Name : "+intentPollName;
+        textPollName.setText(pollName);
 
         //Preparing Paramaneters to pass in Async Thread
         String url ="/displayCandidate?pollID="+pollID;

@@ -69,7 +69,7 @@ public class AddCandidateActivity extends AppCompatActivity {
 
 
 
-        add=(Button) findViewById(R.id.add);
+        add =(Button) findViewById(R.id.addButton);
         this.add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
@@ -116,99 +116,99 @@ public class AddCandidateActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.chk1:
                 if (checked)
-                    list.add(chk1.getTag().toString());
+                    list.add(chk1.getText().toString());
                 else
-                    list.remove(chk1.getTag().toString());
+                    list.remove(chk1.getText().toString());
 
 
                 break;
             case R.id.chk2:
                 if (checked)
-                    list.add(chk2.getTag().toString());
+                    list.add(chk2.getText().toString());
                 else
-                    list.remove(chk2.getTag().toString());
+                    list.remove(chk2.getText().toString());
 
                 break;
 
             case R.id.chk3:
                 if (checked)
-                    list.add(chk3.getTag().toString());
-                else list.remove(chk3.getTag().toString());
+                    list.add(chk3.getText().toString());
+                else list.remove(chk3.getText().toString());
 
                 break;
             case R.id.chk4:
                 if (checked)
-                    list.add(chk4.getTag().toString());
-                else list.remove(chk4.getTag().toString());
+                    list.add(chk4.getText().toString());
+                else list.remove(chk4.getText().toString());
 
                 break;
             case R.id.chk5:
                 if (checked)
-                    list.add(chk5.getTag().toString());
-                else list.remove(chk5.getTag().toString());
+                    list.add(chk5.getText().toString());
+                else list.remove(chk5.getText().toString());
 
                 break;
             case R.id.chk6:
                 if (checked)
 
-                    list.add(chk6.getTag().toString());
-                else list.remove(chk6.getTag().toString());
+                    list.add(chk6.getText().toString());
+                else list.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk7:
 
                 if (checked)
-                    list.add(chk7.getTag().toString());
-                else list.remove(chk7.getTag().toString());
+                    list.add(chk7.getText().toString());
+                else list.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk8:
                 if (checked)
-                    list.add(chk8.getTag().toString());
-                else list.remove(chk8.getTag().toString());
+                    list.add(chk8.getText().toString());
+                else list.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk9:
                 if (checked)
-                    list.add(chk9.getTag().toString());
-                else list.remove(chk9.getTag().toString());
+                    list.add(chk9.getText().toString());
+                else list.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk10:
                 if (checked)
-                    list.add(chk10.getTag().toString());
-                else list.remove(chk10.getTag().toString());
+                    list.add(chk10.getText().toString());
+                else list.remove(chk10.getText().toString());
 
             case R.id.chk11:
                 if (checked)
 
-                    list.add(chk6.getTag().toString());
-                else list.remove(chk6.getTag().toString());
+                    list.add(chk6.getText().toString());
+                else list.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk12:
 
                 if (checked)
-                    list.add(chk7.getTag().toString());
-                else list.remove(chk7.getTag().toString());
+                    list.add(chk7.getText().toString());
+                else list.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk13:
                 if (checked)
-                    list.add(chk8.getTag().toString());
-                else list.remove(chk8.getTag().toString());
+                    list.add(chk8.getText().toString());
+                else list.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk14:
                 if (checked)
-                    list.add(chk9.getTag().toString());
-                else list.remove(chk9.getTag().toString());
+                    list.add(chk9.getText().toString());
+                else list.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk15:
                 if (checked)
-                    list.add(chk10.getTag().toString());
-                else list.remove(chk10.getTag().toString());
+                    list.add(chk10.getText().toString());
+                else list.remove(chk10.getText().toString());
 
                 break;
 
@@ -249,9 +249,6 @@ public class AddCandidateActivity extends AppCompatActivity {
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
-
-
-
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -276,17 +273,13 @@ public class AddCandidateActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     /* Thread for Server Interation - Pass paramenter and URL */
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
-
         private String resp;
-
         @Override
         protected String doInBackground(String... params) {
-
             try {
                 StringBuffer responseString = null;
                 String inputLine;
@@ -294,7 +287,6 @@ public class AddCandidateActivity extends AppCompatActivity {
                 connection = (HttpURLConnection) dataUrl.openConnection();
                 connection.setConnectTimeout(ConfigurationFile.connectionTimeout); //'Connection Timeout' is only called at the beginning to test if the server is up or not.
                 connection.setReadTimeout(ConfigurationFile.connectionTimeout); //'Read Timeout' is to test a bad network all along the transfer.
-                // optional default is GET
                 connection.setRequestMethod("GET");
                 int responseCode = connection.getResponseCode();
                 if (responseCode == 200) {
@@ -302,7 +294,6 @@ public class AddCandidateActivity extends AppCompatActivity {
                     responseString = new StringBuffer();
                     while ((inputLine = in.readLine()) != null) {
                         responseString.append(inputLine);
-                        System.out.println("hey there!");
                     }
                     in.close();
                 }
@@ -318,17 +309,14 @@ public class AddCandidateActivity extends AppCompatActivity {
                 }
             }
             return resp;
-
         }
         @Override
         protected void onPostExecute(String result) {
-
             if (resp.equals("Not Created")) {
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equals("Created")) {
                 Toast.makeText(AddCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
@@ -337,8 +325,6 @@ public class AddCandidateActivity extends AppCompatActivity {
         Intent i=new Intent(this,LoginActivity.class);
         startActivity(i);
     }
-
-
 }
 
 
