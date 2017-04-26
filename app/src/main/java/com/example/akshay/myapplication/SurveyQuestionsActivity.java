@@ -293,7 +293,10 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             if(resp.equalsIgnoreCase("")){
+                Toast.makeText(context, "No Candidates Returned", Toast.LENGTH_SHORT).show();
+            }else{
                 Intent intent = new Intent(context, VoteScreenActivity.class);
+                intent.putExtra("DATA", resp.toString());
                 startActivity(intent);
             }
             /* Only to be allowed at success case */

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.akshay.myapplication.adapter.VoteScreenAdapter;
 import com.example.akshay.myapplication.configuration.ConfigurationFile;
 import com.example.akshay.myapplication.dao.CandidateEntity;
+import com.example.akshay.myapplication.dao.PollEntity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -37,16 +39,37 @@ public class VoteScreenActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        candidateEntities = new ArrayList<>();
-        candidateEntities.add(new CandidateEntity(1, "akshay","sarkar", "aa@a.c","12.12.12", "Male", "CSE", "captain",
-                "tech", "NA","4"));
-        candidateEntities.add(new CandidateEntity(2, "shayam","gopal", "xyz@a.c","12.12.12", "Male", "CSE", "captain",
-                "tech", "NA","4"));
-        candidateEntities.add(new CandidateEntity(3, "dsdsak","sa", "aqwq@a.c","121212", "Male", "CSE", "captain",
-                "tech", "NA","4"));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_screen);
         context = getApplicationContext();
+        candidateEntities = new ArrayList<>();
+
+        String s = getIntent().getStringExtra("DATA");
+        String responseCandidate[] = s.split(ConfigurationFile.lineSeperator);
+        for(int i = 0; i< responseCandidate.length; i++){
+            Log.d(" Candidate - >  "+i, responseCandidate[i]);
+            String[] individualCandidateColumns = responseCandidate[i].split(ConfigurationFile.columentSeperator);
+            //pollObjects.add(new PollEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
+//            id + columentSeperator + firstName+ columentSeperator + lastname + columentSeperator+ candidateEmailId
+//                    + columentSeperator + candidateDOB + columentSeperator + candidateGender + columentSeperator + candidateCourse+
+//                    columentSeperator+ candidateQualities+ columentSeperator+ candidateInterests+ columentSeperator +
+//                    candidatesStudentOrganization+ columentSeperator + candidateCommunityServiceHours + lineSeperator;
+
+            candidateEntities.add(new CandidateEntity(Integer.parseInt(individualCandidateColumns[0]),
+                    individualCandidateColumns[1],individualCandidateColumns[2], individualCandidateColumns[3],
+                    individualCandidateColumns[4], individualCandidateColumns[5], individualCandidateColumns[6],
+                    individualCandidateColumns[7],  individualCandidateColumns[8]
+                    , individualCandidateColumns[9] , individualCandidateColumns[10]));
+        }
+
+
+//        candidateEntities.add(new CandidateEntity(2, "shayam","gopal", "xyz@a.c","12.12.12", "Male", "CSE", "captain",
+//                "tech", "NA","4"));
+//        candidateEntities.add(new CandidateEntity(3, "dsdsak","sa", "aqwq@a.c","121212", "Male", "CSE", "captain",
+//                "tech", "NA","4"));
+
+
         voteScreenAdapter = new VoteScreenAdapter(context, R.layout.list_vote_candidates, candidateEntities);
         setListAdapter(voteScreenAdapter);
         list = getListView();
@@ -60,7 +83,7 @@ public class VoteScreenActivity extends ListActivity {
                     Toast.makeText(context, "Select Candidates to Vote!!",Toast.LENGTH_SHORT).show();
                 }else{
                     //Setting Progress Dialog
-                        //                    progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
+                    //  progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
                     //Preparing Paramaneters to pass in Async Thread
                     String url ="/castVote?utaID="+ utaID + "&candidateIds="+  VoteScreenAdapter.selectedCandidates.toString();
                     //Async Runner
