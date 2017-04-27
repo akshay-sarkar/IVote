@@ -32,17 +32,23 @@ public class AddCandidateActivity extends AppCompatActivity {
     HttpURLConnection connection;
     String communityHour, department,Gender;
     Context context;
+    ProgressDialog progressDialog;
     public android.widget.EditText FirstName;
     public android.widget.EditText LastName;
     public android.widget.EditText Emailid;
     Button add;
+    private final String base_url = ConfigurationFile.base_url;
     ArrayList<String> list ;
     CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10,chk11,chk12,chk13,chk14,chk15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_candidate);
+        FirstName = (EditText) findViewById(R.id.FirstName);
+        LastName = (EditText) findViewById(R.id.LastName);
+        Emailid = (EditText) findViewById(R.id.Emailid);
         context = this;
         addItemsOnSpinner1();
         addItemsOnSpinner2();
@@ -74,7 +80,8 @@ public class AddCandidateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
                         && ! Emailid.getText().toString().isEmpty() && communityHour.isEmpty() || department.isEmpty()){
-
+                    //Setting Progress Dialog
+                    progressDialog = ProgressDialog.show(context, "iVote", "Add Candidate", true, false);
                     //Preparing Paramaneters to pass in Async Thread
                     String url ="/createcandidate?FirstName="+ FirstName.getText().toString()
                             + "&LastName="+  LastName.getText().toString()
@@ -84,6 +91,9 @@ public class AddCandidateActivity extends AppCompatActivity {
                             + "&Community_service_hours" + spinner2.getSelectedItem().toString()
                               ;
                     //Async Runner
+
+                    AddCandidateActivity.AsyncTaskRunner runner = new AddCandidateActivity().AsyncTaskRunner();
+                    runner.execute(url);
                     }else{
                     Toast.makeText(context, "Please fill all the details!!", Toast.LENGTH_LONG).show();
                 }
