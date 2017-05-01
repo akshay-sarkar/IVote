@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         //Setting Progress Dialog
         progressDialog = ProgressDialog.show(context, "iVote", "Checking Credentails", true, false);
         //Preparing Paramaneters to pass in Async Thread
-        String url ="/login?emailId="+ usernameText.getText().toString() + "&pwd="+  passwordText.getText().toString()+"&fb_token="+FirebaseInstanceId.getInstance().getToken();
+        String url ="/login?emailId="+ usernameText.getText().toString() + "&pwd="+  passwordText.getText().toString();
         //Async Runner
         AsyncTaskRunner runner = new AsyncTaskRunner();
         runner.execute(url);

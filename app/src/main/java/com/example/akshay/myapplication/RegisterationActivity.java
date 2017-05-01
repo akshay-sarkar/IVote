@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.akshay.myapplication.configuration.ConfigurationFile;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -26,6 +27,7 @@ public class RegisterationActivity extends Activity{
     private final String base_url = ConfigurationFile.base_url;
     HttpURLConnection connection;
     ProgressDialog progressDialog;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,8 @@ public class RegisterationActivity extends Activity{
                             "&emailID="+  EmailId.getText().toString()+
                             "&utaID="+  UTAID.getText().toString()+
                             "&phone="+  Phone.getText().toString()+
-                            "&pwd="+  PasswordReg.getText().toString();
+                            "&pwd="+  PasswordReg.getText().toString()+
+                            "&fb_token="+FirebaseInstanceId.getInstance().getToken();
 
                     RegisterationActivity.AsyncTaskRunner runner = new RegisterationActivity.AsyncTaskRunner();
                     runner.execute(url);

@@ -48,7 +48,7 @@
                 android:hint="First Name"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
-                android:text="Ann Mary"/>
+                android:text="Aki"/>
         </TableRow>
 
         <TableRow
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
                 android:inputType="textPersonName"
-                android:text="Jacob"/>
+                android:text="Sark"/>
         </TableRow>
 
         <TableRow
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Email ld"
                 android:inputType="text"
-                android:text="annmary.jacob@mavs.uta.edu"/>
+                android:text="akshay.sarkar@mavs.uta.edu"/>
 
         </TableRow>
 
@@ -113,7 +113,7 @@
                 android:hint="UTA ID"
                 android:inputType="number"
                 android:maxLength="10"
-                android:text="1001560231"/>
+                android:text="1001569990"/>
         </TableRow>
 
         <TableRow
