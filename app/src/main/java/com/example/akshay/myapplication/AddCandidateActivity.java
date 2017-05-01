@@ -92,7 +92,7 @@ public class AddCandidateActivity extends AppCompatActivity {
                               ;
                     //Async Runner
 
-                    AddCandidateActivity.AsyncTaskRunner runner = new AddCandidateActivity().AsyncTaskRunner();
+                    AddCandidateActivity.AsyncTaskRunner runner = new AddCandidateActivity.AsyncTaskRunner();
                     runner.execute(url);
                     }else{
                     Toast.makeText(context, "Please fill all the details!!", Toast.LENGTH_LONG).show();

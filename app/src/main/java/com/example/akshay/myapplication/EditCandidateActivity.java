@@ -32,17 +32,23 @@ public class EditCandidateActivity extends AppCompatActivity {
     HttpURLConnection connection;
     String communityHour, department,Gender;
     Context context;
+    ProgressDialog progressDialog;
     public android.widget.EditText FirstName;
     public android.widget.EditText LastName;
     public android.widget.EditText Emailid;
-    Button edit;
+    Button add;
+    private final String base_url = ConfigurationFile.base_url;
     ArrayList<String> list ;
     CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10,chk11,chk12,chk13,chk14,chk15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_candidate);
+
+        setContentView(R.layout.activity_add_candidate);
+        FirstName = (EditText) findViewById(R.id.FirstName);
+        LastName = (EditText) findViewById(R.id.LastName);
+        Emailid = (EditText) findViewById(R.id.Emailid);
         context = this;
         addItemsOnSpinner1();
         addItemsOnSpinner2();
@@ -69,12 +75,13 @@ public class EditCandidateActivity extends AppCompatActivity {
 
 
 
-        edit=(Button) findViewById(R.id.edit);
-        this.edit.setOnClickListener(new View.OnClickListener() {
+        add =(Button) findViewById(R.id.addButton);
+        this.add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
                         && ! Emailid.getText().toString().isEmpty() && communityHour.isEmpty() || department.isEmpty()){
-
+                    //Setting Progress Dialog
+                    progressDialog = ProgressDialog.show(context, "iVote", "Edit Candidate", true, false);
                     //Preparing Paramaneters to pass in Async Thread
                     String url ="/createcandidate?FirstName="+ FirstName.getText().toString()
                             + "&LastName="+  LastName.getText().toString()
@@ -84,6 +91,9 @@ public class EditCandidateActivity extends AppCompatActivity {
                             + "&Community_service_hours" + spinner2.getSelectedItem().toString()
                             ;
                     //Async Runner
+
+                    EditCandidateActivity.AsyncTaskRunner runner = new EditCandidateActivity.AsyncTaskRunner();
+                    runner.execute(url);
                 }else{
                     Toast.makeText(context, "Please fill all the details!!", Toast.LENGTH_LONG).show();
                 }
@@ -273,17 +283,13 @@ public class EditCandidateActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     /* Thread for Server Interation - Pass paramenter and URL */
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
-
         private String resp;
-
         @Override
         protected String doInBackground(String... params) {
-
             try {
                 StringBuffer responseString = null;
                 String inputLine;
@@ -291,7 +297,6 @@ public class EditCandidateActivity extends AppCompatActivity {
                 connection = (HttpURLConnection) dataUrl.openConnection();
                 connection.setConnectTimeout(ConfigurationFile.connectionTimeout); //'Connection Timeout' is only called at the beginning to test if the server is up or not.
                 connection.setReadTimeout(ConfigurationFile.connectionTimeout); //'Read Timeout' is to test a bad network all along the transfer.
-                // optional default is GET
                 connection.setRequestMethod("GET");
                 int responseCode = connection.getResponseCode();
                 if (responseCode == 200) {
@@ -299,7 +304,6 @@ public class EditCandidateActivity extends AppCompatActivity {
                     responseString = new StringBuffer();
                     while ((inputLine = in.readLine()) != null) {
                         responseString.append(inputLine);
-                        System.out.println("hey there!");
                     }
                     in.close();
                 }
@@ -316,22 +320,23 @@ public class EditCandidateActivity extends AppCompatActivity {
             }
             return resp;
         }
-
         @Override
         protected void onPostExecute(String result) {
-
             if (resp.equals("Not Created")) {
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equals("Created")) {
-                Toast.makeText(EditCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditCandidateActivity.this, "Candidate Edited", Toast.LENGTH_SHORT).show();
             }
+        }
+    }
 
-        }
-        }
     public void Logout(View view){
 
         Intent i=new Intent(this,LoginActivity.class);
         startActivity(i);
     }
 }
+
+
+
 
