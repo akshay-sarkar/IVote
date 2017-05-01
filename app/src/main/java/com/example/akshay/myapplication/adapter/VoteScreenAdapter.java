@@ -51,31 +51,31 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
 
         //Name
         if( Last_First_Candidate!=null && !candidateObject.getFirstName().isEmpty()){
-            Last_First_Candidate.setText(candidateObject.getLastName()+","+candidateObject.getFirstName());
+            Last_First_Candidate.setText("Last, First Name : "+candidateObject.getLastName()+","+candidateObject.getFirstName());
         }
         // Gender
         if( gender_Candidate!=null && !candidateObject.getGender().isEmpty()){
-            gender_Candidate.setText(candidateObject.getGender());
+            gender_Candidate.setText("Gender : "+candidateObject.getGender());
         }
         //department
         if(department_candidate!=null && !candidateObject.getDepartment().isEmpty()){
-            department_candidate.setText(candidateObject.getDepartment());
+            department_candidate.setText("Department : "+candidateObject.getDepartment());
         }
         //qualities_candidate
         if(qualities_candidate!=null && !candidateObject.getQualities().isEmpty()){
-            qualities_candidate.setText(candidateObject.getQualities());
+            qualities_candidate.setText("Qualities : "+candidateObject.getQualities());
         }
         //interest_candidate
         if(interest_candidate!=null && !candidateObject.getInterests().isEmpty()){
-            interest_candidate.setText(candidateObject.getInterests());
+            interest_candidate.setText("Interests : "+candidateObject.getInterests());
         }
         //student_organization_candidate
         if(student_organization_candidate!=null && !candidateObject.getStudentOrganization().isEmpty()){
-            student_organization_candidate.setText(candidateObject.getStudentOrganization());
+            student_organization_candidate.setText("Student Org : "+candidateObject.getStudentOrganization());
         }
         //community_service_candidate
         if(community_service_candidate!=null && !candidateObject.getCommunityServiceHours().isEmpty()){
-            community_service_candidate.setText(candidateObject.getCommunityServiceHours());
+            community_service_candidate.setText("Community Service Hour : "+candidateObject.getCommunityServiceHours());
         }
 
         chkSelectCandidate.setTag(candidateObject.getCandidateID());
@@ -129,7 +129,6 @@ public class VoteScreenAdapter extends ArrayAdapter<CandidateEntity> {
         });
         return convertView;
     }
-
 }
 
 

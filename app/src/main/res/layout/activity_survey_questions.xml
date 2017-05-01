@@ -46,14 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".4"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/one"
 
             android:textAppearance="@android:style/TextAppearance"
-            />
+            android:textSize="18sp" />
         <CheckBox
             android:id="@+id/chk1"
             android:layout_width="wrap_content"
@@ -89,14 +92,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".4"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/two"
 
             android:textAppearance="@android:style/TextAppearance"
-            />
+            android:textSize="18sp" />
         <CheckBox
             android:id="@+id/chk6"
             android:layout_width="wrap_content"
@@ -133,13 +139,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".4"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/three"
             android:textAppearance="@android:style/TextAppearance"
-            />
+            android:textSize="18sp" />
         <Spinner
             android:id="@+id/sp1"
             android:layout_width="wrap_content"
@@ -152,14 +161,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".3"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp">
+
         <TextView
+            android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/four"
 
+            android:text="@string/four"
             android:textAppearance="@android:style/TextAppearance"
-            />
+            android:textSize="18sp" />
+
         <Spinner
             android:id="@+id/sp2"
             android:layout_width="wrap_content"
@@ -172,14 +186,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".3"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/five"
 
             android:textAppearance="@android:style/TextAppearance"
-            />
+            android:textSize="18sp" />
         <Spinner
             android:id="@+id/sp3"
             android:layout_width="wrap_content"

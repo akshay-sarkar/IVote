@@ -38,9 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First Name"
-                android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance"
-
                 android:textSize="18sp" />
 
             <EditText
@@ -49,7 +47,8 @@
                 android:layout_height="wrap_content"
                 android:hint="First Name"
                 android:inputType="textPersonName"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:text="Ann Mary"/>
         </TableRow>
 
         <TableRow
@@ -61,9 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Last Name"
-                android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance"
-
                 android:textSize="18sp" />
 
             <EditText
@@ -71,7 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Jacob"/>
         </TableRow>
 
         <TableRow
@@ -83,9 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email ld"
-                android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance"
-
                 android:textSize="18sp" />
 
             <EditText
@@ -93,7 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Email ld"
-                android:inputType="textEmailAddress" />
+                android:inputType="text"
+                android:text="annmary.jacob@mavs.uta.edu"/>
 
         </TableRow>
 
@@ -106,9 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="UTA ID"
-                android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance"
-
                 android:textSize="18sp" />
 
             <EditText
@@ -117,7 +112,8 @@
                 android:layout_height="wrap_content"
                 android:hint="UTA ID"
                 android:inputType="number"
-                android:maxLength="10" />
+                android:maxLength="10"
+                android:text="1001560231"/>
         </TableRow>
 
         <TableRow
@@ -130,8 +126,6 @@
                 android:layout_height="wrap_content"
                 android:text="Phone"
                 android:textAppearance="@android:style/TextAppearance"
-
-                android:textAlignment="center"
                 android:textSize="18sp" />
 
             <EditText
@@ -140,7 +134,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Phone"
                 android:inputType="phone"
-                android:maxLength="12" />
+                android:maxLength="12"
+                android:text="6124107198"
+                />
         </TableRow>
 
         <TableRow
@@ -153,8 +149,6 @@
                 android:layout_height="wrap_content"
                 android:text="Password"
                 android:textAppearance="@android:style/TextAppearance"
-
-                android:textAlignment="center"
                 android:textSize="18sp" />
 
             <EditText
@@ -175,14 +169,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Clear"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:text="Clear"/>
 
             <Button
                 android:id="@+id/btnSubmitRegister"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:textAlignment="center"
                 android:text="Submit" />
         </TableRow>
 

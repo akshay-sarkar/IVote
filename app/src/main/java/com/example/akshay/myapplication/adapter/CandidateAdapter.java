@@ -17,6 +17,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.akshay.myapplication.AddCandidateActivity;
+import com.example.akshay.myapplication.EditCandidateActivity;
 import com.example.akshay.myapplication.PollManagementActivity;
 import com.example.akshay.myapplication.R;
 import com.example.akshay.myapplication.VoteScreenActivity;
@@ -58,39 +59,100 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = mInflater.inflate(mViewResourceId, null);
 
-        final CandidateEntity pollObject = pollData.get(position);
-
+        final CandidateEntity candidateObject = pollData.get(position);
+        final ImageView imgViewDownArrow = (ImageView) convertView.findViewById(R.id.down_arrow_image);
         TextView fname = (TextView) convertView.findViewById(R.id.txtFname);
         TextView lname = (TextView) convertView.findViewById(R.id.txtLname);
         TextView email = (TextView) convertView.findViewById(R.id.txtEmail);
+        TextView gender = (TextView) convertView.findViewById(R.id.txtGender);
+        TextView dob = (TextView) convertView.findViewById(R.id.txtDOB);
+        final TextView dept = (TextView) convertView.findViewById(R.id.txtCourse);
+        final TextView qualities = (TextView) convertView.findViewById(R.id.txtQualities);
+        final TextView interests = (TextView) convertView.findViewById(R.id.txtInterest);
+        final TextView studentorg = (TextView) convertView.findViewById(R.id.txtStudentOrganisation);
+        final TextView commhrs = (TextView) convertView.findViewById(R.id.txtCommhrs);
 
-        if (pollObject != null) {
+        if (candidateObject != null) {
 
             if (fname != null) {
-                fname.setText(pollObject.getFirstName());
+                fname.setText(candidateObject.getFirstName());
             }
             if (lname != null) {
-                lname.setText(pollObject.getLastName());
+                lname.setText(candidateObject.getLastName());
+            }
+            if (gender != null) {
+                gender.setText(candidateObject.getGender());
             }
             if (email != null) {
-                email.setText(pollObject.getUTAEmailID());
+                email.setText(candidateObject.getUTAEmailID());
             }
 
-            // Listener for the icons
+            if (dob != null) {
+                dob.setText(candidateObject.getDOB());
+            }
+            if (dept != null) {
+                dept.setText(candidateObject.getDepartment());
+            }
+            if (qualities != null) {
+                qualities.setText(candidateObject.getQualities());
+            }
+            if (interests != null) {
+                interests.setText(candidateObject.getInterests());
+            }
+            if (studentorg != null) {
+                studentorg.setText(candidateObject.getStudentOrganization());
+            }
+            if (commhrs != null) {
+                commhrs.setText(candidateObject.getCommunityServiceHours());
+            }
 
+
+            // Listener for the icons
+            imgViewDownArrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(imgViewDownArrow.getTag()!= null && imgViewDownArrow.getTag().equals("true")){
+                        dept.setVisibility(View.GONE);
+                        qualities.setVisibility(View.GONE);
+                        interests.setVisibility(View.GONE);
+                        studentorg.setVisibility(View.GONE);
+                        commhrs.setVisibility(View.GONE);
+                        imgViewDownArrow.setTag("false");
+                        imgViewDownArrow.setRotation(0);
+                    }else{
+                        dept.setVisibility(View.VISIBLE);
+                        qualities.setVisibility(View.VISIBLE);
+                        interests.setVisibility(View.VISIBLE);
+                        studentorg.setVisibility(View.VISIBLE);
+                        commhrs.setVisibility(View.VISIBLE);
+                        imgViewDownArrow.setTag("true");
+                        imgViewDownArrow.setRotation(180);
+                    }
+                }
+            });
 
             ImageView imageViewDelete = (ImageView) convertView.findViewById(R.id.imageViewDelete);
             imageViewDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //Preparing Paramaneters to pass in Async Thread
-                    String url ="/deletePoll?pollId="+pollObject.getCandidateID();
+                    String url ="/deleteCandidate?candidateId="+candidateObject.getCandidateID();
                     //Async Runner
                     CandidateAdapter.AsyncTaskRunner runner = new CandidateAdapter.AsyncTaskRunner();
                     runner.execute(url);
-                    //Toast.makeText(ctx, "Poll Deleted Succesfully"+ pollObject.getPollId(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ctx, "Poll Deleted Succesfully"+ candidateObject.getPollId(), Toast.LENGTH_SHORT).show();
                 }
             });
+            ImageView imageViewEdit = (ImageView) convertView.findViewById(R.id.imageViewEdit);
+            imageViewEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ctx, EditCandidateActivity.class);
+                    intent.putExtra("DATA", candidateObject.toString());
+                    ctx.startActivity(intent);
+                }
+            });
+
 
         }
         return convertView;
@@ -139,16 +201,15 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
 
             if (resp.equalsIgnoreCase("Unsuccessfull")) {
                 Toast.makeText(ctx, "Login Unsuccessfull!!", Toast.LENGTH_LONG).show();
-            } else if (resp.equalsIgnoreCase("Poll Reminder Sent") ||
-                    resp.equalsIgnoreCase("Result Sent") ||
-                    resp.equalsIgnoreCase("Poll Deleted")) {
+            } else if (resp.equalsIgnoreCase("Candidate Deleted")) {
                 Toast.makeText(ctx, resp.toString(), Toast.LENGTH_LONG).show();
-                if(resp.equalsIgnoreCase("Poll Deleted")){
-                    //displayPollReTrigger();
-                    //refreshEvents();
-                    CandidateAdapter.MyNextAsyncTask myNextAsyncTask = new CandidateAdapter.MyNextAsyncTask();
-                    myNextAsyncTask.execute("/displayPoll");
-                }
+
+            }
+            if(resp.equalsIgnoreCase("Candidate Deleted")){
+                //displayPollReTrigger();
+                //refreshEvents();
+                CandidateAdapter.MyNextAsyncTask myNextAsyncTask = new CandidateAdapter.MyNextAsyncTask();
+                myNextAsyncTask.execute("/displayCandidate");
             }
             /* Only to be allowed at success case */
             //Intent intent = new Intent(context, PollManagementActivity.class);
@@ -197,24 +258,20 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
         @Override
         protected void onPostExecute(String result) {
             ArrayList<CandidateEntity> pollObjects = new ArrayList<>();
-//                pollObjects.add(new PollEntity("UTA Ambassador President", "Start Date: 02/04/2017", "End Date: 02/06/2017" ));
-//                pollObjects.add(new PollEntity("UTA Mascot Men", "Start Date: "+"02/07/2017", "End Date: "+"02/09/2017" ));
-//                pollObjects.add(new PollEntity("UTA Mascot Women", "Start Date: "+"02/11/2017", "End Date: "+"02/13/2017" ));
-//                pollObjects.add(new PollEntity("UTA CS Nerd", "Start Date: "+"02/17/2017", "End Date: "+"02/19/2017" ));
-//                pollObjects.add(new PollEntity("UTA Ambassador VC", "Start Date: "+"02/21/2017", "End Date: "+"02/23/2017" ));
-
             //Log.d("POLLS ", resp);
             String[] responsePolls = resp.split(lineSeperator);
-           /* for(int i = 0; i< responsePolls.length; i++){
+            for(int i = 0; i< responsePolls.length; i++){
                 Log.d("POLLS "+i, responsePolls[i]);
                 String[] individualPollColumns = responsePolls[i].split(columentSeperator);
-                pollObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
-            }*/
-            pollObjects.add(new CandidateEntity(1, "akshay","sarkar", "aa@a.c","12.12.12", "Male", "CSE", "captain",
-                    "tech", "NA","4"));
-            pollObjects.add(new CandidateEntity(2, "shayam","gopal", "xyz@a.c","12.12.12", "Male", "CSE", "captain",
-                    "tech", "NA","4"));
-                    refreshEvents(pollObjects);
+                //pollObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
+                pollObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), "First Name : "+individualPollColumns[1], "Last Name : "+individualPollColumns[2], "Gender : "+individualPollColumns[5]
+                        ,"DOB : "+individualPollColumns[3],"Email : "+individualPollColumns[4],"Department : "+individualPollColumns[6],"Qualities : "+individualPollColumns[7],"Interests : "+ individualPollColumns[8],
+                        "Student Organizations : "+individualPollColumns[9],"Community Service Hours : "+individualPollColumns[10]));
+
+            }
+
+            refreshEvents(pollObjects);
+
         }
     }
 }

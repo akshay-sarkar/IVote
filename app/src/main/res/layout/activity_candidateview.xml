@@ -2,58 +2,165 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#F3F3F3"
     android:layout_height="match_parent">
 
 
     <TextView
-        android:text="TextView f"
+        android:id="@+id/txtFname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textAppearance="@android:style/TextAppearance"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="First Name: Meena"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:id="@+id/txtFname" />
-
-    <TextView
-        android:text="TextViewl"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtFname"
-        android:layout_alignEnd="@+id/txtFname"
-        android:textAppearance="@android:style/TextAppearance"
-
-        android:layout_marginTop="15dp"
-        android:id="@+id/txtLname" />
-
-    <TextView
-        android:text="TextViewe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtLname"
-        android:layout_alignStart="@+id/txtLname"
-        android:layout_marginTop="16dp"
-        android:textAppearance="@android:style/TextAppearance"
-
-        android:id="@+id/txtEmail" />
+        android:src="@drawable/ic_mode_edit_black_48dp"
+        android:id="@+id/imageViewEdit"
+        android:layout_alignTop="@+id/txtFname"
+        android:layout_toStartOf="@+id/imageViewDelete"
+        android:layout_marginRight="10dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_delete_black_48dp"
-        android:layout_above="@+id/txtEmail"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="14dp"
-        android:id="@+id/imageViewDelete" />
+        android:id="@+id/imageViewDelete"
+        android:layout_alignTop="@+id/imageViewEdit"
+        android:layout_alignParentEnd="true" />
 
-    <ImageView
+    <TextView
+        android:text="Last Name:Balamani"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_public_black_48dp"
-        android:layout_alignTop="@+id/imageViewDelete"
-        android:layout_toStartOf="@+id/imageViewDelete"
-        android:layout_marginEnd="33dp"
-        android:id="@+id/imageViewNotification" />
+        android:id="@+id/txtLname"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtFname"
+        android:layout_alignStart="@+id/txtFname"
+        android:layout_marginTop="5dp" />
+
+
+    <TextView
+        android:text="Gender : Female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtGender"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtLname"
+        android:layout_alignStart="@+id/txtLname"
+        android:layout_marginTop="5dp"/>
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_keyboard_arrow_down_black_48dp"
+        android:layout_alignBottom="@+id/txtGender"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="19dp"
+        android:id="@+id/down_arrow_image"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_keyboard_arrow_down_black_48dp"
+        android:rotation="180"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/down_arrow_image"
+        android:layout_alignStart="@+id/down_arrow_image" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:layout_alignStart="@+id/txtGender"
+        android:layout_below="@+id/txtGender"
+        android:id="@+id/line_seperator_candidate" />
+
+    <TextView
+        android:text="Email : meena@mavs.uta.edu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEmail"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtGender"
+        android:layout_alignStart="@+id/txtGender"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="DOB : 01/12/1993"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDOB"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtEmail"
+        android:layout_alignStart="@+id/txtEmail"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="Course: CSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDOB"
+        android:layout_alignStart="@+id/txtDOB"
+        android:id="@+id/txtCourse"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:text="Qualities : Leadership"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtQualities"
+        android:textSize="15sp"
+        android:textStyle="bold"
+
+        android:layout_below="@+id/txtCourse"
+        android:layout_alignStart="@+id/txtCourse"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="Interest : Technology"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQualities"
+        android:layout_alignStart="@+id/txtQualities"
+        android:id="@+id/txtInterest"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="Student Organisation: Student Council"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtInterest"
+        android:layout_alignStart="@+id/txtInterest"
+        android:id="@+id/txtStudentOrganisation"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="Community Service Hours : 20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtStudentOrganisation"
+        android:layout_alignStart="@+id/txtStudentOrganisation"
+        android:id="@+id/txtCommhrs"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 </RelativeLayout>

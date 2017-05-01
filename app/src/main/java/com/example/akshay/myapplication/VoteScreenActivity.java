@@ -64,12 +64,6 @@ public class VoteScreenActivity extends ListActivity {
         }
 
 
-//        candidateEntities.add(new CandidateEntity(2, "shayam","gopal", "xyz@a.c","12.12.12", "Male", "CSE", "captain",
-//                "tech", "NA","4"));
-//        candidateEntities.add(new CandidateEntity(3, "dsdsak","sa", "aqwq@a.c","121212", "Male", "CSE", "captain",
-//                "tech", "NA","4"));
-
-
         voteScreenAdapter = new VoteScreenAdapter(context, R.layout.list_vote_candidates, candidateEntities);
         setListAdapter(voteScreenAdapter);
         list = getListView();

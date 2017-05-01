@@ -146,11 +146,12 @@ public class SurveyQuestionsActivity extends AppCompatActivity {
 
         sp3 = (Spinner) findViewById(R.id.sp3);
         List<String> list = new ArrayList<String>();
+        list.add("Engineering Department");
         list.add("Medical Department");
         list.add("Business Department");
         list.add("Department of Social Work");
         list.add("School of Art");
-        list.add("Engineering Department");
+
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);

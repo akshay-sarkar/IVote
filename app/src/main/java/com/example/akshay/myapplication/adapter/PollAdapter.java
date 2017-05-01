@@ -139,7 +139,7 @@ public class PollAdapter extends ArrayAdapter<PollEntity> {
             textViewPollName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(ctx, "Poll Named Clicked - "+ pollObject.getPollId(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ctx, "Poll Named Clicked - "+ pollObject.getPollId(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ctx, CandidateManagementActivity.class);
                     intent.putExtra("DATA", pollObject.getPollId());
                     intent.putExtra("POLL_NAME", pollObject.getPollName());

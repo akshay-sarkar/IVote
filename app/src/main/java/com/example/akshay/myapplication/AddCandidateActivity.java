@@ -1,3 +1,4 @@
+
 package com.example.akshay.myapplication;
 
 import android.app.ProgressDialog;
@@ -28,9 +29,9 @@ import java.util.List;
 import static com.example.akshay.myapplication.configuration.ConfigurationFile.base_url;
 
 public class AddCandidateActivity extends AppCompatActivity {
-    Spinner spinner1,spinner2;
+    Spinner spinner1,spinner2, spinner3;
     HttpURLConnection connection;
-    String communityHour, department,Gender;
+    String communityHour, department, Gender ="Male", studentOrganization;
     Context context;
     ProgressDialog progressDialog;
     public android.widget.EditText FirstName;
@@ -38,6 +39,8 @@ public class AddCandidateActivity extends AppCompatActivity {
     public android.widget.EditText Emailid;
     Button add;
     private final String base_url = ConfigurationFile.base_url;
+    ArrayList<String> qualitiesList ;
+    ArrayList<String> interestList ;
     ArrayList<String> list ;
     CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10,chk11,chk12,chk13,chk14,chk15;
 
@@ -52,10 +55,13 @@ public class AddCandidateActivity extends AppCompatActivity {
         context = this;
         addItemsOnSpinner1();
         addItemsOnSpinner2();
+        addItemsOnSpinner3();
 
         addListenerOnButton();
-        list = new ArrayList<String>();
 
+        qualitiesList = new ArrayList<String>();
+        interestList = new ArrayList<String>();
+        list = new ArrayList<String>();
 
         chk1=(CheckBox)findViewById(R.id.chk1);
         chk2=(CheckBox)findViewById(R.id.chk2);
@@ -67,11 +73,6 @@ public class AddCandidateActivity extends AppCompatActivity {
         chk8=(CheckBox)findViewById(R.id.chk8);
         chk9=(CheckBox)findViewById(R.id.chk9);
         chk10=(CheckBox)findViewById(R.id.chk10);
-        chk11=(CheckBox)findViewById(R.id.chk11);
-        chk12=(CheckBox)findViewById(R.id.chk12);
-        chk13=(CheckBox)findViewById(R.id.chk13);
-        chk14=(CheckBox)findViewById(R.id.chk14);
-        chk15=(CheckBox)findViewById(R.id.chk15);
 
 
 
@@ -79,22 +80,27 @@ public class AddCandidateActivity extends AppCompatActivity {
         this.add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
-                        && ! Emailid.getText().toString().isEmpty() && communityHour.isEmpty() || department.isEmpty()){
+                        && ! Emailid.getText().toString().isEmpty()){
                     //Setting Progress Dialog
                     progressDialog = ProgressDialog.show(context, "iVote", "Add Candidate", true, false);
                     //Preparing Paramaneters to pass in Async Thread
-                    String url ="/createcandidate?FirstName="+ FirstName.getText().toString()
-                            + "&LastName="+  LastName.getText().toString()
-                            + "&Emailid="+  Emailid.getText().toString()
-                            + "&Gender" + Gender
-                            + "&Department" + spinner1.getSelectedItem().toString()
-                            + "&Community_service_hours" + spinner2.getSelectedItem().toString()
-                              ;
+                    String url ="/addCandidate?candidateFname="+ FirstName.getText().toString()
+                            + "&candidateLname="+  LastName.getText().toString()
+                            + "&candidateEmailId="+  Emailid.getText().toString()
+                            + "&candidateGender=" + Gender
+                            + "&candidateCourse=" + spinner1.getSelectedItem().toString() // Deparrtement <-> Course
+                            + "&candidateCommunityServiceHours=" + spinner2.getSelectedItem().toString()
+                            + "&candidatesStudentOrganization="+studentOrganization
+                            + "&candidateInterests="+interestList.toString()
+                            + "&candidateQualities="+qualitiesList.toString()
+                            + "&votePostionID="+ConfigurationFile.pollId
+                            + "&candidateDOB=01/11/1992";
+
                     //Async Runner
 
-                    AddCandidateActivity.AsyncTaskRunner runner = new AddCandidateActivity.AsyncTaskRunner();
+                    AsyncTaskRunner runner = new  AsyncTaskRunner();
                     runner.execute(url);
-                    }else{
+                }else{
                     Toast.makeText(context, "Please fill all the details!!", Toast.LENGTH_LONG).show();
                 }
             }
@@ -112,11 +118,11 @@ public class AddCandidateActivity extends AppCompatActivity {
             case R.id.Male:
                 if (checked)
                     Gender="Male";
-                    break;
+                break;
             case R.id.Female:
                 if (checked)
                     Gender="Female";
-                    break;
+                break;
         }
     }
     public void onCheckboxClicked(View view) {
@@ -126,102 +132,68 @@ public class AddCandidateActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.chk1:
                 if (checked)
-                    list.add(chk1.getText().toString());
+                    qualitiesList.add(chk1.getText().toString());
                 else
-                    list.remove(chk1.getText().toString());
+                    qualitiesList.remove(chk1.getText().toString());
 
 
                 break;
             case R.id.chk2:
                 if (checked)
-                    list.add(chk2.getText().toString());
+                    qualitiesList.add(chk2.getText().toString());
                 else
-                    list.remove(chk2.getText().toString());
+                    qualitiesList.remove(chk2.getText().toString());
 
                 break;
 
             case R.id.chk3:
                 if (checked)
-                    list.add(chk3.getText().toString());
-                else list.remove(chk3.getText().toString());
+                    qualitiesList.add(chk3.getText().toString());
+                else qualitiesList.remove(chk3.getText().toString());
 
                 break;
             case R.id.chk4:
                 if (checked)
-                    list.add(chk4.getText().toString());
-                else list.remove(chk4.getText().toString());
+                    qualitiesList.add(chk4.getText().toString());
+                else qualitiesList.remove(chk4.getText().toString());
 
                 break;
             case R.id.chk5:
                 if (checked)
-                    list.add(chk5.getText().toString());
-                else list.remove(chk5.getText().toString());
+                    qualitiesList.add(chk5.getText().toString());
+                else qualitiesList.remove(chk5.getText().toString());
 
                 break;
             case R.id.chk6:
                 if (checked)
 
-                    list.add(chk6.getText().toString());
-                else list.remove(chk6.getText().toString());
+                    interestList.add(chk6.getText().toString());
+                else interestList.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk7:
 
                 if (checked)
-                    list.add(chk7.getText().toString());
-                else list.remove(chk7.getText().toString());
+                    interestList.add(chk7.getText().toString());
+                else interestList.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk8:
                 if (checked)
-                    list.add(chk8.getText().toString());
-                else list.remove(chk8.getText().toString());
+                    interestList.add(chk8.getText().toString());
+                else interestList.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk9:
                 if (checked)
-                    list.add(chk9.getText().toString());
-                else list.remove(chk9.getText().toString());
+                    interestList.add(chk9.getText().toString());
+                else interestList.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk10:
                 if (checked)
-                    list.add(chk10.getText().toString());
-                else list.remove(chk10.getText().toString());
-
-            case R.id.chk11:
-                if (checked)
-
-                    list.add(chk6.getText().toString());
-                else list.remove(chk6.getText().toString());
-
-                break;
-            case R.id.chk12:
-
-                if (checked)
-                    list.add(chk7.getText().toString());
-                else list.remove(chk7.getText().toString());
-
-                break;
-            case R.id.chk13:
-                if (checked)
-                    list.add(chk8.getText().toString());
-                else list.remove(chk8.getText().toString());
-
-                break;
-            case R.id.chk14:
-                if (checked)
-                    list.add(chk9.getText().toString());
-                else list.remove(chk9.getText().toString());
-
-                break;
-            case R.id.chk15:
-                if (checked)
-                    list.add(chk10.getText().toString());
-                else list.remove(chk10.getText().toString());
-
-                break;
-
+                    interestList.add(chk10.getText().toString());
+                else interestList.remove(chk10.getText().toString());
         }
     }
     public void addItemsOnSpinner1() {
@@ -254,6 +226,22 @@ public class AddCandidateActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(dataAdapter);
     }
+    public void addItemsOnSpinner3() {
+
+        spinner3 = (Spinner) findViewById(R.id.sp1);
+        List<String> list = new ArrayList<String>();
+        list.add("Sports Club");
+        list.add("Health Care Community");
+        list.add("Art,History Student Union");
+        list.add("International Student Organization");
+        list.add("Engineering Student Association");
+
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(dataAdapter);
+    }
     // get the selected dropdown list value
     public void addListenerOnButton() {
 
@@ -276,6 +264,19 @@ public class AddCandidateActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
                 department = spinner1.getSelectedItem().toString();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                studentOrganization = spinner3.getSelectedItem().toString();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -323,20 +324,18 @@ public class AddCandidateActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (resp.equals("Not Created")) {
+                progressDialog.dismiss();
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
-            } else if (resp.equals("Created")) {
+            } else if (resp.equals("Candidate Added")) {
+                progressDialog.dismiss();
                 Toast.makeText(AddCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
+
             }
         }
     }
 
     public void Logout(View view){
-
         Intent i=new Intent(this,LoginActivity.class);
         startActivity(i);
     }
 }
-
-
-
-

@@ -111,7 +111,7 @@ public class SurveyActivity extends AppCompatActivity {
                 new Timer().schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(context, VoteAcknowledgementActivity.class);
+                        Intent intent = new Intent(context, LoginActivity.class);
                         startActivity(intent);
                     }
                 }, 5000);

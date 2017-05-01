@@ -15,6 +15,7 @@
         android:layout_marginTop="166dp"
         android:ems="10"
         android:hint="Email Address"
+        android:text="annmary.jacob@mavs.uta.edu"
         android:inputType="textEmailAddress" />
 
     <Button

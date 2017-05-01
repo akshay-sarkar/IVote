@@ -1,10 +1,12 @@
 package com.example.akshay.myapplication.dao;
 
+import java.io.Serializable;
+
 /**
  * Created by Akshay on 4/13/2017.
  */
 
-public class CandidateEntity {
+public class CandidateEntity implements Serializable{
 
     int CandidateID;
     String FirstName;

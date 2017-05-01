@@ -44,7 +44,8 @@
         android:textSize="18sp"
         android:layout_marginTop="48dp"
         android:layout_below="@+id/editTextPollName"
-        android:layout_alignStart="@+id/textView9" />
+        android:layout_alignStart="@+id/textView9"
+        />
 
     <TextView
         android:id="@+id/textView11"
@@ -65,6 +66,7 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:hint="Poll Name"
+        android:text="UTA Ambassador "
         android:inputType="textPersonName" />
 
     <EditText
@@ -75,6 +77,7 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:hint="MM/DD/YYYY"
+        android:text="04/30/2017"
         android:inputType="text" />
 
     <EditText
@@ -85,7 +88,8 @@
         android:hint="MM/DD/YYYY"
         android:inputType="text"
         android:layout_alignBottom="@+id/textView11"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:text="05/01/2017"/>
 
     <Button
         android:id="@+id/buttonAddPoll"

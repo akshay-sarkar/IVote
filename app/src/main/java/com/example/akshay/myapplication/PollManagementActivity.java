@@ -126,12 +126,6 @@ public class PollManagementActivity extends ListActivity {
                 Toast.makeText(ctx, "Not Record Found!!", Toast.LENGTH_LONG).show();
             } else if (!resp.trim().isEmpty()) {
                 pollObjects = new ArrayList<>();
-//                pollObjects.add(new PollEntity("UTA Ambassador President", "Start Date: 02/04/2017", "End Date: 02/06/2017" ));
-//                pollObjects.add(new PollEntity("UTA Mascot Men", "Start Date: "+"02/07/2017", "End Date: "+"02/09/2017" ));
-//                pollObjects.add(new PollEntity("UTA Mascot Women", "Start Date: "+"02/11/2017", "End Date: "+"02/13/2017" ));
-//                pollObjects.add(new PollEntity("UTA CS Nerd", "Start Date: "+"02/17/2017", "End Date: "+"02/19/2017" ));
-//                pollObjects.add(new PollEntity("UTA Ambassador VC", "Start Date: "+"02/21/2017", "End Date: "+"02/23/2017" ));
-
                 //Log.d("POLLS ", resp);
                 String[] responsePolls = resp.split(lineSeperator);
                 for(int i = 0; i< responsePolls.length; i++){

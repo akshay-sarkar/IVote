@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--<android.support.design.widget.AppBarLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:theme="@style/AppTheme.AppBarOverlay">-->
-
-    <!--<android.support.v7.widget.Toolbar-->
-    <!--android:id="@+id/toolbar"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="?attr/colorPrimary"-->
-    <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
-
-    <!--</android.support.design.widget.AppBarLayout>-->
-
-
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -70,7 +55,7 @@
             android:ems="10"
             android:hint="@string/email_utaid"
             android:inputType="textEmailAddress"
-            android:text="abc@mavs.uta.edu"
+            android:text="admin@mavs.uta.edu"
             android:textSize="20sp" />
 
         <EditText
@@ -79,8 +64,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPassword"
             android:text="admin"
+            android:inputType="textPassword"
             android:textSize="20sp" />
 
         <Button

@@ -21,8 +21,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:text="Poll Name "
-        android:textAppearance="@android:style/TextAppearance"
-
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -76,8 +74,6 @@
         android:layout_marginTop="12dp"
         android:text="Start Date: 01/01/2017"
         android:textSize="15sp"
-        android:textAppearance="@android:style/TextAppearance"
-
         android:textStyle="bold" />
 
     <TextView
@@ -88,8 +84,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="12dp"
         android:text="End Date: 01/01/2017"
-        android:textAppearance="@android:style/TextAppearance"
-
         android:textSize="15sp"
         android:textStyle="bold" />
 
