@@ -3,20 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="#F3F3F3"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp">
 
 
     <TextView
         android:id="@+id/txtFname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
         android:text="First Name: Meena"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -76,15 +75,6 @@
         android:visibility="invisible"
         android:layout_alignTop="@+id/down_arrow_image"
         android:layout_alignStart="@+id/down_arrow_image" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="?android:attr/listDivider"
-        android:layout_alignStart="@+id/txtGender"
-        android:layout_below="@+id/txtGender"
-        android:id="@+id/line_seperator_candidate" />
-
     <TextView
         android:text="Email : meena@mavs.uta.edu"
         android:layout_width="wrap_content"
@@ -94,7 +84,17 @@
         android:textStyle="bold"
         android:layout_below="@+id/txtGender"
         android:layout_alignStart="@+id/txtGender"
-        android:visibility="gone"/>
+        android:layout_marginTop="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:layout_alignStart="@+id/txtGender"
+        android:layout_below="@+id/txtEmail"
+        android:id="@+id/line_seperator_candidate" />
+
+
 
     <TextView
         android:text="DOB : 01/12/1993"
@@ -103,9 +103,11 @@
         android:id="@+id/txtDOB"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_below="@+id/txtEmail"
+        android:layout_below="@+id/line_seperator_candidate"
         android:layout_alignStart="@+id/txtEmail"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        />
 
     <TextView
         android:text="Course: CSE"
@@ -117,6 +119,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         android:visibility="gone"
+        android:layout_marginTop="5dp"
         />
 
     <TextView
@@ -126,7 +129,7 @@
         android:id="@+id/txtQualities"
         android:textSize="15sp"
         android:textStyle="bold"
-
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/txtCourse"
         android:layout_alignStart="@+id/txtCourse"
         android:visibility="gone"/>
@@ -140,7 +143,8 @@
         android:id="@+id/txtInterest"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="Student Organisation: Student Council"
@@ -151,7 +155,8 @@
         android:id="@+id/txtStudentOrganisation"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="Community Service Hours : 20"
@@ -162,5 +167,6 @@
         android:id="@+id/txtCommhrs"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginTop="5dp"/>
 </RelativeLayout>

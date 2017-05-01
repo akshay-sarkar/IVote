@@ -55,7 +55,7 @@
             android:ems="10"
             android:hint="@string/email_utaid"
             android:inputType="textEmailAddress"
-            android:text="admin@mavs.uta.edu"
+            android:text="annmary.jacob@mavs.uta.edu"
             android:textSize="20sp" />
 
         <EditText
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password"
-            android:text="admin"
+            android:text="annmary"
             android:inputType="textPassword"
             android:textSize="20sp" />
 

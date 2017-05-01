@@ -329,7 +329,7 @@ public class AddCandidateActivity extends AppCompatActivity {
             } else if (resp.equals("Candidate Added")) {
                 progressDialog.dismiss();
                 Toast.makeText(AddCandidateActivity.this, "Candidate Added", Toast.LENGTH_SHORT).show();
-
+                finish();
             }
         }
     }

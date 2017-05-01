@@ -63,7 +63,7 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
         final ImageView imgViewDownArrow = (ImageView) convertView.findViewById(R.id.down_arrow_image);
         TextView fname = (TextView) convertView.findViewById(R.id.txtFname);
         TextView lname = (TextView) convertView.findViewById(R.id.txtLname);
-        TextView email = (TextView) convertView.findViewById(R.id.txtEmail);
+        final TextView email = (TextView) convertView.findViewById(R.id.txtEmail);
         TextView gender = (TextView) convertView.findViewById(R.id.txtGender);
         TextView dob = (TextView) convertView.findViewById(R.id.txtDOB);
         final TextView dept = (TextView) convertView.findViewById(R.id.txtCourse);
@@ -117,6 +117,7 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
                         interests.setVisibility(View.GONE);
                         studentorg.setVisibility(View.GONE);
                         commhrs.setVisibility(View.GONE);
+                        //email.setVisibility(View.GONE);
                         imgViewDownArrow.setTag("false");
                         imgViewDownArrow.setRotation(0);
                     }else{
@@ -125,6 +126,7 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
                         interests.setVisibility(View.VISIBLE);
                         studentorg.setVisibility(View.VISIBLE);
                         commhrs.setVisibility(View.VISIBLE);
+                        //email.setVisibility(View.VISIBLE);
                         imgViewDownArrow.setTag("true");
                         imgViewDownArrow.setRotation(180);
                     }
@@ -148,7 +150,7 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(ctx, EditCandidateActivity.class);
-                    intent.putExtra("DATA", candidateObject.toString());
+                    intent.putExtra("candidateID", candidateObject.getCandidateID());
                     ctx.startActivity(intent);
                 }
             });
@@ -203,21 +205,13 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
                 Toast.makeText(ctx, "Login Unsuccessfull!!", Toast.LENGTH_LONG).show();
             } else if (resp.equalsIgnoreCase("Candidate Deleted")) {
                 Toast.makeText(ctx, resp.toString(), Toast.LENGTH_LONG).show();
-
-            }
-            if(resp.equalsIgnoreCase("Candidate Deleted")){
-                //displayPollReTrigger();
-                //refreshEvents();
                 CandidateAdapter.MyNextAsyncTask myNextAsyncTask = new CandidateAdapter.MyNextAsyncTask();
-                myNextAsyncTask.execute("/displayCandidate");
+                myNextAsyncTask.execute("/displayCandidate?pollID="+ConfigurationFile.pollId);
             }
-            /* Only to be allowed at success case */
-            //Intent intent = new Intent(context, PollManagementActivity.class);
-            //startActivity(intent);
         }
     }
 
-    //Update Poll UI
+    //Update Candidate UI
     private class MyNextAsyncTask extends AsyncTask<String, String, String> {
 
         private String resp;
@@ -257,20 +251,19 @@ public class CandidateAdapter extends ArrayAdapter<CandidateEntity> {
 
         @Override
         protected void onPostExecute(String result) {
-            ArrayList<CandidateEntity> pollObjects = new ArrayList<>();
+            ArrayList<CandidateEntity> candidateObjects = new ArrayList<>();
             //Log.d("POLLS ", resp);
             String[] responsePolls = resp.split(lineSeperator);
             for(int i = 0; i< responsePolls.length; i++){
                 Log.d("POLLS "+i, responsePolls[i]);
                 String[] individualPollColumns = responsePolls[i].split(columentSeperator);
                 //pollObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), individualPollColumns[1], "Start Date: "+individualPollColumns[2], "End Date: "+ individualPollColumns[3] ));
-                pollObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), "First Name : "+individualPollColumns[1], "Last Name : "+individualPollColumns[2], "Gender : "+individualPollColumns[5]
-                        ,"DOB : "+individualPollColumns[3],"Email : "+individualPollColumns[4],"Department : "+individualPollColumns[6],"Qualities : "+individualPollColumns[7],"Interests : "+ individualPollColumns[8],
+                candidateObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), "First Name : "+individualPollColumns[1], "Last Name : "+individualPollColumns[2],"Email : "+individualPollColumns[3]
+                        ,"DOB : "+individualPollColumns[4], "Gender : "+individualPollColumns[5],"Department : "+individualPollColumns[6],"Qualities : "+individualPollColumns[7],"Interests : "+ individualPollColumns[8],
                         "Student Organizations : "+individualPollColumns[9],"Community Service Hours : "+individualPollColumns[10]));
-
             }
 
-            refreshEvents(pollObjects);
+            refreshEvents(candidateObjects);
 
         }
     }

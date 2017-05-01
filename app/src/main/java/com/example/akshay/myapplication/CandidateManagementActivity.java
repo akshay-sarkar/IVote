@@ -165,8 +165,14 @@ public class CandidateManagementActivity extends ListActivity {
                 String responsePolls[] = resp.split(ConfigurationFile.lineSeperator);
                 for(int i = 0; i< responsePolls.length; i++){
                     String[] individualPollColumns = responsePolls[i].split(columentSeperator);
-                    candidateObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), "First Name : "+individualPollColumns[1], "Last Name : "+individualPollColumns[2], "Gender : "+individualPollColumns[5]
-                            ,"DOB : "+individualPollColumns[3],"Email : "+individualPollColumns[4],"Department : "+individualPollColumns[6],"Qualities : "+individualPollColumns[7],"Interests : "+ individualPollColumns[8],
+
+//                    id +   + firstName+   + lastname +  + candidateEmailId
+//                            + columentSeperator + candidateDOB + columentSeperator + candidateGender + columentSeperator + candidateCourse+
+//                            columentSeperator+ candidateQualities+ columentSeperator+ candidateInterests+ columentSeperator +
+//                            candidatesStudentOrganization+ columentSeperator + candidateCommunityServiceHours +lineSeperator;
+//
+                    candidateObjects.add(new CandidateEntity(Integer.parseInt(individualPollColumns[0]), "First Name : "+individualPollColumns[1], "Last Name : "+individualPollColumns[2],"Email : "+individualPollColumns[3]
+                            ,"DOB : "+individualPollColumns[4], "Gender : "+individualPollColumns[5],"Department : "+individualPollColumns[6],"Qualities : "+individualPollColumns[7],"Interests : "+ individualPollColumns[8],
                             "Student Organizations : "+individualPollColumns[9],"Community Service Hours : "+individualPollColumns[10]));
                 }
 //                candidateObjects.add(new CandidateEntity(1, "akshay","sarkar", "aa@a.c","12.12.12", "Male", "CSE", "captain",

@@ -29,34 +29,35 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_margin="5dp"
-            android:id="@+id/winner1"
             android:textAlignment="center"
+            android:id="@+id/headingTxt"
             />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="20dp"
-        android:layout_below="@+id/winner1"
-        >
+        android:layout_below="@+id/headingTxt"
+        android:layout_alignStart="@+id/headingTxt"
+        android:id="@+id/winnerLayout">
         <TextView
-            android:text="THE WINNERS ARE"
+            android:text="Winner's for Poll - "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/winner1"
             android:layout_alignEnd="@+id/winner1"
             android:layout_marginTop="14dp"
-            android:id="@+id/winner2"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textAppearance="@android:style/TextAppearance"
             android:textStyle="normal|bold"
+            android:id="@+id/viewResultPollName"
             />
 
         <TextView
             android:text="View Result 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView21"
+            android:id="@+id/winner1"
             android:textAppearance="@android:style/TextAppearance"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -69,11 +70,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textSize="18sp"
-            android:id="@+id/textView22"
+            android:id="@+id/winner2"
             android:textAppearance="@android:style/TextAppearance"
             android:textStyle="normal|italic"
             android:layout_below="@+id/textView21"
             android:layout_alignParentStart="true" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/winnerLayout">
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:id="@+id/graph" />
     </LinearLayout>
 
 </RelativeLayout>

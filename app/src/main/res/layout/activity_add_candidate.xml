@@ -74,12 +74,13 @@
                         android:textAppearance="@android:style/TextAppearance"
                         android:text="First Name" />
 
-                    <EditText
-                        android:id="@+id/FirstName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint=" First Name"
-                        android:inputType="textPersonName" />
+                <EditText
+                    android:id="@+id/FirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint=" First Name"
+                    android:inputType="textPersonName"
+                    android:text="Akshay" />
                 </TableRow>
 
                 <TableRow
@@ -98,7 +99,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint=" Last Name"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:text="Sarkar" />
                 </TableRow>
 
                 <TableRow
@@ -120,7 +122,7 @@
                         android:inputType="textPersonName"
                         android:isScrollContainer="true"
                         android:keepScreenOn="true"
-                        />
+                        android:text="akshay.sarkar@mavs.uta.edu" />
 
                 </TableRow>
                 <TableRow
@@ -140,11 +142,12 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:text="Male"
+                            android:id="@+id/Male"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/Male"
-                            android:onClick="onRadioButtonClicked"/>
+                            android:checked="true"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="Male" />
                         <RadioButton
                             android:text="Female"
                             android:layout_width="wrap_content"
@@ -213,8 +216,9 @@
                         android:id="@+id/chk1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Honesty"
-                        android:onClick="onCheckboxClicked"/>
+                        android:checked="false"
+                        android:onClick="onCheckboxClicked"
+                        android:text="Honesty" />
                 </TableRow>
                 <TableRow>
                     <TextView
@@ -255,6 +259,7 @@
                         android:id="@+id/chk4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="false"
                         android:onClick="onCheckboxClicked"
                         android:text="Team Leader" />
                 </TableRow>

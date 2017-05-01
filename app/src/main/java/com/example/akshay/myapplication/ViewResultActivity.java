@@ -2,6 +2,7 @@ package com.example.akshay.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.Toast;
 import android.os.AsyncTask;
 
 import com.example.akshay.myapplication.configuration.ConfigurationFile;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,12 +25,14 @@ import java.net.URL;
 import java.util.List;
 
 public class ViewResultActivity extends AppCompatActivity {
-    private final String base_url = ConfigurationFile.base_url+"/viewResult";
+    private final String base_url = ConfigurationFile.base_url+"/viewResult?pollId="+ConfigurationFile.pollId;
     Context context;
     HttpURLConnection connection;
     String resp = "";
-    TextView winner2;
-    TextView winner1;
+    TextView winner2, winner1, viewResultPollName;
+    String winner_name1, winner_name2;
+    int winner_vote1, winner_vote2;
+    GraphView graph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,11 @@ public class ViewResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_result);
         winner2 = (TextView) findViewById(R.id.winner2);
         winner1 = (TextView) findViewById(R.id.winner1);
+        viewResultPollName = (TextView) findViewById(R.id.viewResultPollName);
+        viewResultPollName.setText("Winner's for Poll - "+ConfigurationFile.pollName);
+
+        graph = (GraphView) findViewById(R.id.graph);
+
         AsyncTaskRunner runner = new AsyncTaskRunner();
         runner.execute(base_url);
     }
@@ -77,18 +89,48 @@ public class ViewResultActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(String result) {
-            // execution of result of Long time consuming operation
-            result = result.substring(1, result.length()-1);
-            String [] parts = result.split(",");
-            System.out.println("lalalalalalallalaala"+parts[0]);
-            winner1.setText("Winner 1 :"+parts[0]) ;
-            winner2.setText("Winner 2 :"+parts[1]);
-            if (resp.equalsIgnoreCase("Unsuccessfull")) {
+            System.out.print("Result :"+result);
+
+//            "candidateFname")+columentSeperator+rs_winner.getString("candidateLname")+columentSeperator+
+//                    candidate_id+columentSeperator+max_vote
+            if(!result.isEmpty()){
+                String rows[] = result.split(ConfigurationFile.lineSeperator);
+                for(int i=0; i<2; i++){
+                    String col[] = rows[i].split(ConfigurationFile.columentSeperator);
+                    if(i==0) {
+                        winner_name1 = col[0] + " " + col[1];
+                        winner_vote1 = Integer.parseInt(col[3]);
+                        winner1.setText("Winner 1 : " +winner_name1 +" with "+winner_vote1+" votes");
+                    }else{
+                        winner_name2 = col[0] + " " + col[1];
+                        winner_vote2 = Integer.parseInt(col[3]);
+                        winner2.setText("Winner 2 : "+winner_name2 +" with "+winner_vote2+" votes");
+                    }
+                }
+
+                BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
+                        new DataPoint(0, winner_vote1),
+                        new DataPoint(1, winner_vote2),
+                        new DataPoint(2, 0)
+                });
+                graph.addSeries(series);
+                // styling
+                series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+                    @Override
+                    public int get(DataPoint data) {
+                        return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
+                    }
+                });
+
+                series.setSpacing(50);
+                // draw values on top
+                series.setDrawValuesOnTop(true);
+                series.setValuesOnTopColor(Color.RED);
+
+
+            }else{
                 Toast.makeText(context, "Something went wrong.", Toast.LENGTH_LONG).show();
             }
-            /* Only to be allowed at success case */
-            //Intent intent = new Intent(context, PollManagementActivity.class);
-            //startActivity(intent);
         }
     }
     public void Logout(View view){

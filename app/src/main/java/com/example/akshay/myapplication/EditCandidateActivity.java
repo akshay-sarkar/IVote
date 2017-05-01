@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.akshay.myapplication.configuration.ConfigurationFile;
+import com.example.akshay.myapplication.dao.CandidateEntity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -28,32 +29,41 @@ import java.util.List;
 import static com.example.akshay.myapplication.configuration.ConfigurationFile.base_url;
 
 public class EditCandidateActivity extends AppCompatActivity {
-    Spinner spinner1,spinner2;
+    Spinner spinner1,spinner2, spinner3;
     HttpURLConnection connection;
-    String communityHour, department,Gender;
+    String communityHour, department, Gender ="Male", studentOrganization;
     Context context;
     ProgressDialog progressDialog;
     public android.widget.EditText FirstName;
     public android.widget.EditText LastName;
     public android.widget.EditText Emailid;
-    Button add;
+    Button edit;
     private final String base_url = ConfigurationFile.base_url;
+    ArrayList<String> qualitiesList ;
+    ArrayList<String> interestList ;
     ArrayList<String> list ;
-    CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10,chk11,chk12,chk13,chk14,chk15;
+    int candidateID;
+    CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8,chk9,chk10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_add_candidate);
+        setContentView(R.layout.activity_edit_candidate);
         FirstName = (EditText) findViewById(R.id.FirstName);
         LastName = (EditText) findViewById(R.id.LastName);
         Emailid = (EditText) findViewById(R.id.Emailid);
         context = this;
+        //CandidateEntity candidateEntity =  (CandidateEntity) getIntent().getSerializableExtra("DATA");
+        candidateID = getIntent().getExtras().getInt("candidateID");
         addItemsOnSpinner1();
         addItemsOnSpinner2();
+        addItemsOnSpinner3();
 
         addListenerOnButton();
+
+        qualitiesList = new ArrayList<String>();
+        interestList = new ArrayList<String>();
         list = new ArrayList<String>();
 
 
@@ -67,29 +77,30 @@ public class EditCandidateActivity extends AppCompatActivity {
         chk8=(CheckBox)findViewById(R.id.chk8);
         chk9=(CheckBox)findViewById(R.id.chk9);
         chk10=(CheckBox)findViewById(R.id.chk10);
-        chk11=(CheckBox)findViewById(R.id.chk11);
-        chk12=(CheckBox)findViewById(R.id.chk12);
-        chk13=(CheckBox)findViewById(R.id.chk13);
-        chk14=(CheckBox)findViewById(R.id.chk14);
-        chk15=(CheckBox)findViewById(R.id.chk15);
 
 
 
-        add =(Button) findViewById(R.id.addButton);
-        this.add.setOnClickListener(new View.OnClickListener() {
+        edit =(Button) findViewById(R.id.edit);
+        this.edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(!FirstName.getText().toString().isEmpty() && !LastName.getText().toString().isEmpty()
-                        && ! Emailid.getText().toString().isEmpty() && communityHour.isEmpty() || department.isEmpty()){
+                        && ! Emailid.getText().toString().isEmpty()){
                     //Setting Progress Dialog
                     progressDialog = ProgressDialog.show(context, "iVote", "Edit Candidate", true, false);
                     //Preparing Paramaneters to pass in Async Thread
-                    String url ="/createcandidate?FirstName="+ FirstName.getText().toString()
-                            + "&LastName="+  LastName.getText().toString()
-                            + "&Emailid="+  Emailid.getText().toString()
-                            + "&Gender" + Gender
-                            + "&Department" + spinner1.getSelectedItem().toString()
-                            + "&Community_service_hours" + spinner2.getSelectedItem().toString()
-                            ;
+                    String url ="/editCandidate?candidateFname="+ FirstName.getText().toString()
+                            + "&candidateLname="+  LastName.getText().toString()
+                            + "&candidateEmailId="+  Emailid.getText().toString()
+                            + "&candidateGender=" + Gender
+                            + "&candidateCourse=" + spinner1.getSelectedItem().toString() // Deparrtement <-> Course
+                            + "&candidateCommunityServiceHours=" + spinner2.getSelectedItem().toString()
+                            + "&candidatesStudentOrganization="+studentOrganization
+                            + "&candidateInterests="+interestList.toString()
+                            + "&candidateQualities="+qualitiesList.toString()
+                            + "&votePostionID="+ConfigurationFile.pollId
+                            + "&candidateDOB=01/11/1992"
+                            + "&candidateID="+candidateID;
+
                     //Async Runner
 
                     EditCandidateActivity.AsyncTaskRunner runner = new EditCandidateActivity.AsyncTaskRunner();
@@ -126,102 +137,68 @@ public class EditCandidateActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.chk1:
                 if (checked)
-                    list.add(chk1.getText().toString());
+                    qualitiesList.add(chk1.getText().toString());
                 else
-                    list.remove(chk1.getText().toString());
+                    qualitiesList.remove(chk1.getText().toString());
 
 
                 break;
             case R.id.chk2:
                 if (checked)
-                    list.add(chk2.getText().toString());
+                    qualitiesList.add(chk2.getText().toString());
                 else
-                    list.remove(chk2.getText().toString());
+                    qualitiesList.remove(chk2.getText().toString());
 
                 break;
 
             case R.id.chk3:
                 if (checked)
-                    list.add(chk3.getText().toString());
-                else list.remove(chk3.getText().toString());
+                    qualitiesList.add(chk3.getText().toString());
+                else qualitiesList.remove(chk3.getText().toString());
 
                 break;
             case R.id.chk4:
                 if (checked)
-                    list.add(chk4.getText().toString());
-                else list.remove(chk4.getText().toString());
+                    qualitiesList.add(chk4.getText().toString());
+                else qualitiesList.remove(chk4.getText().toString());
 
                 break;
             case R.id.chk5:
                 if (checked)
-                    list.add(chk5.getText().toString());
-                else list.remove(chk5.getText().toString());
+                    qualitiesList.add(chk5.getText().toString());
+                else qualitiesList.remove(chk5.getText().toString());
 
                 break;
             case R.id.chk6:
                 if (checked)
 
-                    list.add(chk6.getText().toString());
-                else list.remove(chk6.getText().toString());
+                    interestList.add(chk6.getText().toString());
+                else interestList.remove(chk6.getText().toString());
 
                 break;
             case R.id.chk7:
 
                 if (checked)
-                    list.add(chk7.getText().toString());
-                else list.remove(chk7.getText().toString());
+                    interestList.add(chk7.getText().toString());
+                else interestList.remove(chk7.getText().toString());
 
                 break;
             case R.id.chk8:
                 if (checked)
-                    list.add(chk8.getText().toString());
-                else list.remove(chk8.getText().toString());
+                    interestList.add(chk8.getText().toString());
+                else interestList.remove(chk8.getText().toString());
 
                 break;
             case R.id.chk9:
                 if (checked)
-                    list.add(chk9.getText().toString());
-                else list.remove(chk9.getText().toString());
+                    interestList.add(chk9.getText().toString());
+                else interestList.remove(chk9.getText().toString());
 
                 break;
             case R.id.chk10:
                 if (checked)
-                    list.add(chk10.getText().toString());
-                else list.remove(chk10.getText().toString());
-
-            case R.id.chk11:
-                if (checked)
-
-                    list.add(chk6.getText().toString());
-                else list.remove(chk6.getText().toString());
-
-                break;
-            case R.id.chk12:
-
-                if (checked)
-                    list.add(chk7.getText().toString());
-                else list.remove(chk7.getText().toString());
-
-                break;
-            case R.id.chk13:
-                if (checked)
-                    list.add(chk8.getText().toString());
-                else list.remove(chk8.getText().toString());
-
-                break;
-            case R.id.chk14:
-                if (checked)
-                    list.add(chk9.getText().toString());
-                else list.remove(chk9.getText().toString());
-
-                break;
-            case R.id.chk15:
-                if (checked)
-                    list.add(chk10.getText().toString());
-                else list.remove(chk10.getText().toString());
-
-                break;
-
+                    interestList.add(chk10.getText().toString());
+                else interestList.remove(chk10.getText().toString());
         }
     }
     public void addItemsOnSpinner1() {
@@ -254,6 +231,22 @@ public class EditCandidateActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(dataAdapter);
     }
+    public void addItemsOnSpinner3() {
+
+        spinner3 = (Spinner) findViewById(R.id.sp1);
+        List<String> list = new ArrayList<String>();
+        list.add("Sports Club");
+        list.add("Health Care Community");
+        list.add("Art,History Student Union");
+        list.add("International Student Organization");
+        list.add("Engineering Student Association");
+
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(dataAdapter);
+    }
     // get the selected dropdown list value
     public void addListenerOnButton() {
 
@@ -276,6 +269,19 @@ public class EditCandidateActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
                 department = spinner1.getSelectedItem().toString();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                studentOrganization = spinner3.getSelectedItem().toString();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -322,10 +328,13 @@ public class EditCandidateActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(String result) {
-            if (resp.equals("Not Created")) {
+            if (resp.equals("Not Updated")) {
+                progressDialog.dismiss();
                 Toast.makeText(context, "Not Successfull!!", Toast.LENGTH_LONG).show();
-            } else if (resp.equals("Created")) {
-                Toast.makeText(EditCandidateActivity.this, "Candidate Edited", Toast.LENGTH_SHORT).show();
+            } else if (resp.equals("Candidate Updated")) {
+                progressDialog.dismiss();
+                Toast.makeText(EditCandidateActivity.this, "Candidate Details Updated", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
     }
