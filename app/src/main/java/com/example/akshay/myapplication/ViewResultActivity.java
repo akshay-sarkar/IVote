@@ -90,47 +90,48 @@ public class ViewResultActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             System.out.print("Result :"+result);
-
-//            "candidateFname")+columentSeperator+rs_winner.getString("candidateLname")+columentSeperator+
-//                    candidate_id+columentSeperator+max_vote
-            if(!result.isEmpty()){
-                String rows[] = result.split(ConfigurationFile.lineSeperator);
-                for(int i=0; i<2; i++){
-                    String col[] = rows[i].split(ConfigurationFile.columentSeperator);
-                    if(i==0) {
-                        winner_name1 = col[0] + " " + col[1];
-                        winner_vote1 = Integer.parseInt(col[3]);
-                        winner1.setText("Winner 1 : " +winner_name1 +" with "+winner_vote1+" votes");
-                    }else{
-                        winner_name2 = col[0] + " " + col[1];
-                        winner_vote2 = Integer.parseInt(col[3]);
-                        winner2.setText("Winner 2 : "+winner_name2 +" with "+winner_vote2+" votes");
-                    }
-                }
-
-                BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-                        new DataPoint(0, winner_vote1),
-                        new DataPoint(1, winner_vote2),
-                        new DataPoint(2, 0)
-                });
-                graph.addSeries(series);
-                // styling
-                series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-                    @Override
-                    public int get(DataPoint data) {
-                        return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
-                    }
-                });
-
-                series.setSpacing(50);
-                // draw values on top
-                series.setDrawValuesOnTop(true);
-                series.setValuesOnTopColor(Color.RED);
-
-
-            }else{
-                Toast.makeText(context, "Something went wrong.", Toast.LENGTH_LONG).show();
+try {
+    if (!result.isEmpty()) {
+        String rows[] = result.split(ConfigurationFile.lineSeperator);
+        for (int i = 0; i < 2; i++) {
+            String col[] = rows[i].split(ConfigurationFile.columentSeperator);
+            if (i == 0) {
+                winner_name1 = col[0] + " " + col[1];
+                winner_vote1 = Integer.parseInt(col[3]);
+                winner1.setText("Winner 1 : " + winner_name1 + " with " + winner_vote1 + " votes");
+            } else {
+                winner_name2 = col[0] + " " + col[1];
+                winner_vote2 = Integer.parseInt(col[3]);
+                winner2.setText("Winner 2 : " + winner_name2 + " with " + winner_vote2 + " votes");
             }
+        }
+
+        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
+                new DataPoint(0, winner_vote1),
+                new DataPoint(1, winner_vote2),
+                new DataPoint(2, 0)
+        });
+        graph.addSeries(series);
+        // styling
+        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+            @Override
+            public int get(DataPoint data) {
+                return Color.rgb((int) data.getX() * 255 / 4, (int) Math.abs(data.getY() * 255 / 6), 100);
+            }
+        });
+
+        series.setSpacing(50);
+        // draw values on top
+        series.setDrawValuesOnTop(true);
+        series.setValuesOnTopColor(Color.RED);
+
+
+    } else {
+        Toast.makeText(context, "Something went wrong.", Toast.LENGTH_LONG).show();
+    }
+}catch (Exception e){
+
+}
         }
     }
     public void Logout(View view){
